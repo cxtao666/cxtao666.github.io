@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-24T10:45:37.184Z</updated>
+  <updated>2020-03-24T15:35:47.190Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git的commit日志基本规范</title>
+    <link href="http://yoursite.com/2020/03/24/git%E7%9A%84commit%E6%97%A5%E5%BF%97%E5%9F%BA%E6%9C%AC%E8%A7%84%E8%8C%83/"/>
+    <id>http://yoursite.com/2020/03/24/git%E7%9A%84commit%E6%97%A5%E5%BF%97%E5%9F%BA%E6%9C%AC%E8%A7%84%E8%8C%83/</id>
+    <published>2020-03-24T14:50:53.000Z</published>
+    <updated>2020-03-24T15:35:47.190Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="git-commit日志基本规范"><a href="#git-commit日志基本规范" class="headerlink" title="git commit日志基本规范"></a>git commit日志基本规范</h3><p>利用git的commit指令提交代码我想大家都知道,但是git的commit的日志内容其实也是有所讲究的,为了更好的维护代码,应该提升git的commit日志信息的可读性,这样可以方便以后更好的查看提交的代码记录,也方便更好的维护代码,所以有良好的代码日志规范也是很重要的<p><a id="more"></a><h4 id="git的日志格式"><a href="#git的日志格式" class="headerlink" title="git的日志格式"></a>git的日志格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure><h4 id="type详解"><a href="#type详解" class="headerlink" title="type详解"></a>type详解</h4><p> type表示某次提交的类型,比如是修复一个bug还是增加一个新的功能,type的类型如下:</p><ul><li>feat 表示新增功能</li><li>fix 修复bug</li><li>docs 仅仅修复了bug文档,例如readme这些文档</li><li>style 修改了样式,但不改变代码的逻辑</li><li>refactor 代码重构,没有新增功能,也没有修改bug</li><li>pref 优化相关,比如提升性能,体验</li><li>test 测试用例,例如单元测试,集成测试</li><li>chore 改变构建流程,或者添加依赖库和工具</li><li>revert 回滚到上一个版本</li></ul><h4 id="其它部分解释"><a href="#其它部分解释" class="headerlink" title="其它部分解释"></a>其它部分解释</h4><p><strong>标题行</strong></p><p>50个字符以内，描述主要变更内容</p><p><strong>主体内容</strong></p><p>更详细的说明文本，建议72个字符以内</p><p><strong>尾部</strong></p><p>如果需要的化可以添加一个链接到issue地址或者其它文档，或者关闭某个issue</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;git-commit日志基本规范&quot;&gt;&lt;a href=&quot;#git-commit日志基本规范&quot; class=&quot;headerlink&quot; title=&quot;git commit日志基本规范&quot;&gt;&lt;/a&gt;git commit日志基本规范&lt;/h3&gt;&lt;p&gt;利用git的commit指令提交代码我想大家都知道,但是git的commit的日志内容其实也是有所讲究的,为了更好的维护代码,应该提升git的commit日志信息的可读性,这样可以方便以后更好的查看提交的代码记录,也方便更好的维护代码,所以有良好的代码日志规范也是很重要的&lt;p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>JSDoc的使用</title>
