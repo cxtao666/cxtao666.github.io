@@ -16,7 +16,7 @@
 <meta property="og:description" content="JSDoc作用我们都知道js是门弱类型的语言,所以,为了增强代码的可读性,提高js的代码规范,可以选择使用JSDoc进行代码的注释,有了更多类型描述,例如参数类型,函数的返回值类型等等这些的类型描述,在进行开发时会带来很大的便捷,在这基础上稍做扩展,就可以用于代码提示和语法分析,同时JSDoc也可以导出API文档  了解基础的JSDoc的使用对于复杂的JSDoc的使用,本文就不做介绍了,这里推荐下">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-24T08:32:31.000Z">
-<meta property="article:modified_time" content="2020-03-24T09:49:26.539Z">
+<meta property="article:modified_time" content="2020-03-24T10:12:45.731Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
@@ -199,7 +199,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">822字</span>
+        <span class="post-count">828字</span>
       </span>
     </span>
 
@@ -241,9 +241,9 @@
 <td><code>@alias aliasName</code></td>
 </tr>
 <tr>
-<td></td>
 <td>constructor</td>
 <td>使用@constructor可以标识一个函数是构造函数</td>
+<td><code>@constructor</code></td>
 </tr>
 <tr>
 <td>description</td>
@@ -261,9 +261,9 @@
 <td><code>@extends {Type}</code></td>
 </tr>
 <tr>
-<td></td>
 <td>param</td>
 <td>使用@param可以描述一个函数的参数以及参数类型</td>
+<td>```@param {Type[,Type,…]} ParameterName=[Value1</td>
 </tr>
 <tr>
 <td>property</td>
@@ -273,12 +273,12 @@
 <tr>
 <td>return</td>
 <td>使用@return可以描述一个对象的属性</td>
-<td><code>@return {Type[,Type,...]</code>}</td>
+<td><code>@return {Type[,Type,...]}</code></td>
 </tr>
 <tr>
 <td>type</td>
 <td>使用@type可以定义某个变量的类型</td>
-<td>@type {Type[,Type,…]}</td>
+<td><code>@type {Type[,Type,...]}</code></td>
 </tr>
 </tbody></table>
 <h4 id="标签的代码示例"><a href="#标签的代码示例" class="headerlink" title="标签的代码示例"></a>标签的代码示例</h4><h5 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> * @description 这是一个构造函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> * @example </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> * var animal &#x3D; new Animal(&#39;恐龙&#39;,1000);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> * @constructor</span><br><span class="line"></span><br><span class="line"> *&#x2F;</span><br><span class="line">    constructor(name,weight)&#123;</span><br><span class="line"></span><br><span class="line">        this.name &#x3D; name;</span><br><span class="line"></span><br><span class="line">       this.weight &#x3D; weight;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    say()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> * @extends &#123;Animal&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Dog extends Animal&#123;</span><br><span class="line">    </span><br><span class="line">    constructor(name,weight)&#123;</span><br><span class="line">        super(name,weight);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    say ()&#123;</span><br><span class="line"></span><br><span class="line">        console.log(this.name+&quot;:wang wang wang ...&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -494,6 +494,7 @@
   </div>
 </footer>
 <script type="text/javascript" src="/love.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     </div>
     <script>
@@ -713,5 +714,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":145,"height":315,"hOffset":150},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":145,"height":315,"hOffset":250},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
 </html>
