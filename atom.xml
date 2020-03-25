@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-24T15:35:47.190Z</updated>
+  <updated>2020-03-25T03:06:32.975Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ejs的简单使用</title>
+    <link href="http://yoursite.com/2020/03/24/ejs%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/03/24/ejs%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-03-24T15:51:54.000Z</published>
+    <updated>2020-03-25T03:06:32.975Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用</strong></p><a id="more"></a><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量嵌套于html模板之中<P><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%&#x3D; title %&gt;  &#x2F;&#x2F;在koa中可以配合ctx的render方法进行渲染</span><br></pre></td></tr></table></figure><p>在模板中定义的变量都需要render函数中对应名称的变量进行渲染,如果想要定义了不渲染,可以使用<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%&#x3D; locals.name %&gt; &#x2F;&#x2F;这样没有传也不会报错</span><br></pre></td></tr></table></figure><h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt; </span><br><span class="line"></span><br><span class="line">&lt;%  if (isMe) &#123; %&gt;</span><br><span class="line">&lt;% &#125; else &#123; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><h4 id="组价"><a href="#组价" class="headerlink" title="组价"></a>组价</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 将变量传给引用的ejs文件</span><br><span class="line">&lt;%- include(&#39;&#x2F;文件名.ejs&#39;,&#123;</span><br><span class="line">    isMe</span><br><span class="line">&#125;)%&gt;</span><br></pre></td></tr></table></figure><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;% List.forEach((item)&#x3D;&gt;&#123; %&gt;</span><br><span class="line">    &lt;li&gt;&lt;%&#x3D; item.name %&gt;&lt;&#x2F;li&gt; </span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure><h4 id="执行js脚本"><a href="#执行js脚本" class="headerlink" title="执行js脚本"></a>执行js脚本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(&#39;100)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>ejs初探就到这里了</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>git的commit日志基本规范</title>
