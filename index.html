@@ -344,7 +344,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -429,81 +429,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="git的简单介绍"><a href="#git的简单介绍" class="headerlink" title="git的简单介绍"></a>git的简单介绍</h2><p>git是分布式版本控制工具</p>
-<h2 id="git-的基本操作指令"><a href="#git-的基本操作指令" class="headerlink" title="git 的基本操作指令"></a>git 的基本操作指令</h2><h3 id="git的初始化操作"><a href="#git的初始化操作" class="headerlink" title="git的初始化操作"></a>git的初始化操作</h3><p><code>git init</code><br>初始化git仓库</p>
-<p><code>git add 文件名</code></p>
-<p><code>git add .</code></p>
-<p>把文件 添加到 git 暂存区中</p>
-<p><code>git status</code></p>
-<p>查看git 的状态</p>
-<p>出现红色说明有文件，修改了但还没提交到暂存区</p>
-<p><code>git  diff</code>查看修改了哪些文件   增加了哪些行，删除了那些行</p>
-<p><code>git  diff    --cached</code> 查看修改了那些文件</p>
-<p>查看的是修改是暂存区的修改和修改了但未暂存之间的对比</p>
-<p><code>git  commit -m “文字描述”</code>     将暂存区的数据提交到本地仓库</p>
-<p><code>git rm  -f</code> 强制删除  暂存区中的 文件   （会把文件从磁盘一并删除）    有数据，但更改的数据还没放到本地仓库</p>
-<p><code>git rm  文件名</code>    删除文件(会把文件从磁盘一并删除)    暂存区数据已经提交到本地仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached   将数据从仓库中删除（或）暂存区中删除，但不会删除磁盘的文件</span><br></pre></td></tr></table></figure>
-
-
-<p>cached 缓存</p>
-<p><code>git  log</code>  查看  git 的  版本提交信息 </p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv README.md README</span><br></pre></td></tr></table></figure>
-
-<p>对文件进行改名操作</p>
-<p>取消工作区做的修改，让工作区的文件和暂存区的文件内容一样，消除git diff的差异</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
-
-
-<p>将已提交到暂存区的文件撤销为未暂存状态</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
-
-
-<p>使用git status 就可以查看下面操作的可选命令</p>
-<p><code>git reset  --hard  commit号</code></p>
-<p>返回上一个提交的版本</p>
-<h3 id="git的分支"><a href="#git的分支" class="headerlink" title="git的分支"></a>git的分支</h3><p><code>git checkout -b dev</code></p>
-<p>创建并切换dev分支</p>
-<p><code>git branch dev  创建dev分支</code></p>
-<p><code>git branch</code></p>
-<p>查看当前所属分支</p>
-<p><code>git  checkout master  切换到master分支</code></p>
-<p><code>git merge  dev  合并分支</code></p>
-<p>合并后就有dev分支上提交的版本信息</p>
-<p><code>git  branch -d dev</code></p>
-<p>删除dev分支</p>
-<h4 id="合并冲突问题"><a href="#合并冲突问题" class="headerlink" title="合并冲突问题"></a>合并冲突问题</h4><p>先创建一个dev分支  提交</p>
-<p>然后再切换回master分支，再提交</p>
-<p>且2个提交的分支都修改了同一个文件</p>
-<p>然后把dev分支合并到master分支上，产生冲突</p>
-<p>分支切过来是看不到的</p>
-<h3 id="git远程仓库操作"><a href="#git远程仓库操作" class="headerlink" title="git远程仓库操作"></a>git远程仓库操作</h3><p><code>git push origin  分支名</code>   当分支推送到远程</p>
-<p>得推送工作分支上去才行</p>
-<p>推送主分支不行的</p>
-<p><code>git push origin 分支名   --force</code>  强推  嘿嘿</p>
-<p><code>git clone “仓库地址”</code>   把仓库下载到本地</p>
-<p>跟踪远程分支     跟踪完   直接  git  push 就可以了</p>
-<p><code>git  pull  origin  分支名</code></p>
-<p>把远程的分支拉取到本地</p>
-<p>拉下来后，如果远程分支已经做了修改，它就会自动同步远程的代码，并提交一次commit 向本地仓库</p>
-<p><code>git branch --set-upstream-to=origin/smart smart</code>    本地的smart分支跟踪远程的smart分支</p>
-<p>##git 撤销提交的 commit 操作</p>
-<p>写完代码后，我们一般这样</p>
-<p><code>git add .</code>//添加所有文件</p>
-<p><code>git commit -m</code>“本功能全部完成”</p>
-<p>执行完commit后，想撤回commit，怎么办？</p>
-<p>这样凉拌：</p>
-<p><code>git reset --soft HEAD^</code></p>
-<p>这样就成功的撤销了你的commit</p>
-<p>注意，仅仅是撤回commit操作，您写的代码仍然保留。</p>
-<p>说一下个人理解：<br>HEAD^的意思是上一个版本，也可以写成HEAD~1</p>
-<p>如果你进行了2次commit，想都撤回，可以使用HEAD~2</p>
-<p>至于这几个参数：<br>–mixed<br>意思是：不删除工作空间改动代码，撤销commit，并且撤销git add . 操作<br>这个为默认参数,git reset –mixed HEAD^ 和 git reset HEAD^ 效果是一样的。</p>
-<p>–soft<br>不删除工作空间改动代码，撤销commit，不撤销git add . </p>
-<p>–hard<br>删除工作空间改动代码，撤销commit，撤销git add . </p>
-<p>注意完成这个操作后，就恢复到了上一次的commit状态。</p>
-<p>顺便说一下，如果commit注释写错了，只是想改一下注释，只需要：<br><code>git commit --amend</code></p>
-<p>此时会进入默认vim编辑器，修改注释完毕后保存就好了</p>
-
+        
       
 
       
@@ -603,28 +529,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h4><p><strong>把我个人博客的前端界面部分使用nuxt框架进行服务端渲染</strong></p>
-<h4 id="nuxt介绍"><a href="#nuxt介绍" class="headerlink" title="nuxt介绍"></a>nuxt介绍</h4><p><strong>nuxt可以把spa根据路由将单页面分割成多页面,比起vue的ssr渲染要更容易使用</strong></p>
-<h4 id="nuxt的使用"><a href="#nuxt的使用" class="headerlink" title="nuxt的使用"></a>nuxt的使用</h4><h5 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h5><p><code>npx create-nuxt-app &lt;项目名&gt;</code></p>
-<h5 id="nuxt的目录结构"><a href="#nuxt的目录结构" class="headerlink" title="nuxt的目录结构"></a>nuxt的目录结构</h5><p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131142344036-720942694.png" alt=""></p>
-<p>其中layouts目录用于存放APP.vue,将其改名为default.vue,既可使用全局的界面配置,注意得用 <code>&lt;nuxt/&gt;</code>代替<code>&lt;router-view&gt;</code></p>
-<p>nuxt的界面嵌套<br><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131142405828-1131757079.png" alt=""></p>
-<p>pages目录用于存放vue项目的路由页面,nuxt默认情况下根据该目录,对路由进行配置,自动生成路由,所以无特殊情况是不需要自己手动配置路由的</p>
-<p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131142416797-305585681.png" alt=""></p>
-<p>components目录用于将vue项目的组件移动到此目录</p>
-<p>plugins目录是插件的使用,例如如果项目使用了element.ui,则需要在该目录下配置,配置方法是在目录下新建elementui.js,并在文件下写入如下代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> ElementUi <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/index.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/display.css'</span></span><br><span class="line">Vue.use(ElementUi);</span><br></pre></td></tr></table></figure>
-
-<p>同时使用npm安装element-ui插件</p>
-<p>然后在nuxt.config.js文件中进行配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="string">'~/plugins/elementui'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>assets文件用于存放需要被webpack打包的图片和css文件</p>
-<p><strong>注意:在使用路径引入图片时需要在路径前面加上~</strong>,<strong>不然会报错</strong></p>
-<p>store文件夹用于存放vuex文件,在文件夹下新建index.js文件,导出方式大概如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">export const state &#x3D; () &#x3D;&gt;(&#123; </span><br><span class="line">  isLogin: false,</span><br><span class="line">  user:&quot;&quot;</span><br><span class="line">&#125;)  &#x2F;&#x2F;state必须是函数才行</span><br><span class="line"></span><br><span class="line">export const  mutations &#x3D; &#123;</span><br><span class="line">  userStatus(state, flag) &#123;</span><br><span class="line">    state.isLogin &#x3D; flag</span><br><span class="line">  &#125;,</span><br><span class="line">  setuser(state,flag)&#123;</span><br><span class="line">    state.user &#x3D; flag;</span><br><span class="line">    window.$cookies.set(&quot;user_session&quot;,&quot;haslogin&quot;,60 * 60 * 24)</span><br><span class="line">  &#125;,</span><br><span class="line">  getuser(state,flag)&#123;</span><br><span class="line"></span><br><span class="line">   var value &#x3D;  window.$cookies.get(&quot;user_session&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if(value &#x3D;&#x3D;&#x3D; &quot;haslogin&quot;)&#123;</span><br><span class="line"></span><br><span class="line">      state.isLogin &#x3D; true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> export const actions &#x3D; &#123;</span><br><span class="line">  userLogin(&#123;commit&#125;, flag) &#123;</span><br><span class="line">    commit(&quot;userStatus&quot;, flag)</span><br><span class="line">  &#125;,</span><br><span class="line">  setusername (&#123;commit&#125;,flag)&#123;</span><br><span class="line">    commit(&quot;setuser&quot;,flag)</span><br><span class="line">  &#125;,</span><br><span class="line">  getusername (&#123;commit&#125;,flag)&#123;</span><br><span class="line">    commit(&quot;getuser&quot;,flag)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> export const getters &#x3D; &#123;</span><br><span class="line">  isLogin: state &#x3D;&gt; state.isLogin,</span><br><span class="line">  user:state &#x3D;&gt;state.user</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h4><p>nuxt初探先到此,当然还有很多东西没有涉及,像动态路由,中间件的使用,还有vuex项目的使用等等,项目也还没改造完成,所以未完待续</p>
-
+        
       
 
       
@@ -1087,15 +992,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
