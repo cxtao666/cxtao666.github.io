@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: git | 欢乐涌动</title>
+  <title>git的使用 | 欢乐涌动</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="欢乐涌动">
-<meta property="og:url" content="http://yoursite.com/tags/git/index.html">
+  <meta name="description" content="git的简单介绍git是分布式版本控制工具 git 的基本操作指令git的初始化操作git init初始化git仓库 git add 文件名 git add . 把文件 添加到 git 暂存区中 git status 查看git 的状态 出现红色说明有文件，修改了但还没提交到暂存区 git  diff查看修改了哪些文件   增加了哪些行，删除了那些行 git  diff    --cached 查">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git的使用">
+<meta property="og:url" content="http://yoursite.com/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="欢乐涌动">
+<meta property="og:description" content="git的简单介绍git是分布式版本控制工具 git 的基本操作指令git的初始化操作git init初始化git仓库 git add 文件名 git add . 把文件 添加到 git 暂存区中 git status 查看git 的状态 出现红色说明有文件，修改了但还没提交到暂存区 git  diff查看修改了哪些文件   增加了哪些行，删除了那些行 git  diff    --cached 查">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-23T16:29:23.000Z">
+<meta property="article:modified_time" content="2020-04-23T16:30:02.846Z">
 <meta property="article:author" content="cxtao">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="安卓">
-<meta property="article:tag" content="node">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
   
   
@@ -171,35 +172,173 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-git的使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      git的使用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+
+        
+        <a href="/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
   	<time datetime="2020-04-23T16:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/">git的使用</a>
-    </h1>
-  
+          <!-- 需要添加的位置 -->
+         <!-- 开始添加字数统计-->
+         
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">992字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
           
+          <!-- 添加完成 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="git的简单介绍"><a href="#git的简单介绍" class="headerlink" title="git的简单介绍"></a>git的简单介绍</h2><p>git是分布式版本控制工具</p>
+<h2 id="git-的基本操作指令"><a href="#git-的基本操作指令" class="headerlink" title="git 的基本操作指令"></a>git 的基本操作指令</h2><h3 id="git的初始化操作"><a href="#git的初始化操作" class="headerlink" title="git的初始化操作"></a>git的初始化操作</h3><p><code>git init</code><br>初始化git仓库</p>
+<p><code>git add 文件名</code></p>
+<p><code>git add .</code></p>
+<p>把文件 添加到 git 暂存区中</p>
+<p><code>git status</code></p>
+<p>查看git 的状态</p>
+<p>出现红色说明有文件，修改了但还没提交到暂存区</p>
+<p><code>git  diff</code>查看修改了哪些文件   增加了哪些行，删除了那些行</p>
+<p><code>git  diff    --cached</code> 查看修改了那些文件</p>
+<p>查看的是修改是暂存区的修改和修改了但未暂存之间的对比</p>
+<p><code>git  commit -m “文字描述”</code>     将暂存区的数据提交到本地仓库</p>
+<p><code>git rm  -f</code> 强制删除  暂存区中的 文件   （会把文件从磁盘一并删除）    有数据，但更改的数据还没放到本地仓库</p>
+<p><code>git rm  文件名</code>    删除文件(会把文件从磁盘一并删除)    暂存区数据已经提交到本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached   将数据从仓库中删除（或）暂存区中删除，但不会删除磁盘的文件</span><br></pre></td></tr></table></figure>
+
+
+<p>cached 缓存</p>
+<p><code>git  log</code>  查看  git 的  版本提交信息 </p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv README.md README</span><br></pre></td></tr></table></figure>
+
+<p>对文件进行改名操作</p>
+<p>取消工作区做的修改，让工作区的文件和暂存区的文件内容一样，消除git diff的差异</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+
+
+<p>将已提交到暂存区的文件撤销为未暂存状态</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+
+
+<p>使用git status 就可以查看下面操作的可选命令</p>
+<p><code>git reset  --hard  commit号</code></p>
+<p>返回上一个提交的版本</p>
+<h3 id="git的分支"><a href="#git的分支" class="headerlink" title="git的分支"></a>git的分支</h3><p><code>git checkout -b dev</code></p>
+<p>创建并切换dev分支</p>
+<p><code>git branch dev  创建dev分支</code></p>
+<p><code>git branch</code></p>
+<p>查看当前所属分支</p>
+<p><code>git  checkout master  切换到master分支</code></p>
+<p><code>git merge  dev  合并分支</code></p>
+<p>合并后就有dev分支上提交的版本信息</p>
+<p><code>git  branch -d dev</code></p>
+<p>删除dev分支</p>
+<h4 id="合并冲突问题"><a href="#合并冲突问题" class="headerlink" title="合并冲突问题"></a>合并冲突问题</h4><p>先创建一个dev分支  提交</p>
+<p>然后再切换回master分支，再提交</p>
+<p>且2个提交的分支都修改了同一个文件</p>
+<p>然后把dev分支合并到master分支上，产生冲突</p>
+<p>分支切过来是看不到的</p>
+<h3 id="git远程仓库操作"><a href="#git远程仓库操作" class="headerlink" title="git远程仓库操作"></a>git远程仓库操作</h3><p><code>git push origin  分支名</code>   当分支推送到远程</p>
+<p>得推送工作分支上去才行</p>
+<p>推送主分支不行的</p>
+<p><code>git push origin 分支名   --force</code>  强推  嘿嘿</p>
+<p><code>git clone “仓库地址”</code>   把仓库下载到本地</p>
+<p>跟踪远程分支     跟踪完   直接  git  push 就可以了</p>
+<p><code>git  pull  origin  分支名</code></p>
+<p>把远程的分支拉取到本地</p>
+<p>拉下来后，如果远程分支已经做了修改，它就会自动同步远程的代码，并提交一次commit 向本地仓库</p>
+<p><code>git branch --set-upstream-to=origin/smart smart</code>    本地的smart分支跟踪远程的smart分支</p>
+<p>##git 撤销提交的 commit 操作</p>
+<p>写完代码后，我们一般这样</p>
+<p><code>git add .</code>//添加所有文件</p>
+<p><code>git commit -m</code>“本功能全部完成”</p>
+<p>执行完commit后，想撤回commit，怎么办？</p>
+<p>这样凉拌：</p>
+<p><code>git reset --soft HEAD^</code></p>
+<p>这样就成功的撤销了你的commit</p>
+<p>注意，仅仅是撤回commit操作，您写的代码仍然保留。</p>
+<p>说一下个人理解：<br>HEAD^的意思是上一个版本，也可以写成HEAD~1</p>
+<p>如果你进行了2次commit，想都撤回，可以使用HEAD~2</p>
+<p>至于这几个参数：<br>–mixed<br>意思是：不删除工作空间改动代码，撤销commit，并且撤销git add . 操作<br>这个为默认参数,git reset –mixed HEAD^ 和 git reset HEAD^ 效果是一样的。</p>
+<p>–soft<br>不删除工作空间改动代码，撤销commit，不撤销git add . </p>
+<p>–hard<br>删除工作空间改动代码，撤销commit，撤销git add . </p>
+<p>注意完成这个操作后，就恢复到了上一次的commit状态。</p>
+<p>顺便说一下，如果commit注释写错了，只是想改一下注释，只需要：<br><code>git commit --amend</code></p>
+<p>此时会进入默认vim编辑器，修改注释完毕后保存就好了</p>
+
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+             -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+        
+ 
+    
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,57 +350,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://cxtao666.github.io/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/24/git%E7%9A%84commit%E6%97%A5%E5%BF%97%E5%9F%BA%E6%9C%AC%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2020-03-24T14:50:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nust.js初探</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/24/git%E7%9A%84commit%E6%97%A5%E5%BF%97%E5%9F%BA%E6%9C%AC%E8%A7%84%E8%8C%83/">git的commit日志基本规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git的简单介绍"><span class="toc-number">1.</span> <span class="toc-text">git的简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-的基本操作指令"><span class="toc-number">2.</span> <span class="toc-text">git 的基本操作指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git的初始化操作"><span class="toc-number">2.1.</span> <span class="toc-text">git的初始化操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git的分支"><span class="toc-number">2.2.</span> <span class="toc-text">git的分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#合并冲突问题"><span class="toc-number">2.2.1.</span> <span class="toc-text">合并冲突问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git远程仓库操作"><span class="toc-number">2.3.</span> <span class="toc-text">git远程仓库操作</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -296,9 +497,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
