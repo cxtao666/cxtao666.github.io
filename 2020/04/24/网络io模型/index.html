@@ -15,19 +15,19 @@
 <meta property="og:site_name" content="欢乐涌动">
 <meta property="og:description" content="操作系统基本概念首先来来说下操作系统，嗯，操作系统是计算机硬件的管理软件，是对计算机硬件的抽象，操作系统将应用程序分为用户态和内核态，例如驱动程序就位于内核态，而我们写的一般程序都是用户态，包括web服务器这些，应用程序无法直接操控硬件，只能通过系统调用，通过操作系统驱动io硬件，通过操作系统管理进程。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131152720823-2025172513.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131152924101-510560621.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153423422-1015880400.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153110563-1388062089.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153204997-189606878.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153225562-694302020.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153311504-216331194.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//234504_kQl5_1403215.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//20150405_VKYH.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//20152818_DXcj.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//20164149_LD8E.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//20175459_gtgw.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//21091434_DsZb.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//849589-20170709225535712-2041092305.png">
 <meta property="article:published_time" content="2020-04-23T16:18:46.000Z">
-<meta property="article:modified_time" content="2020-04-23T16:23:15.757Z">
+<meta property="article:modified_time" content="2020-07-06T05:36:03.017Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131152720823-2025172513.png">
+<meta name="twitter:image" content="http://image.myblog-tao.cn//234504_kQl5_1403215.png">
   
   
     <link rel="icon" href="/assets/avatar.jpg">
@@ -234,7 +234,7 @@
 <p>套接字文件就是通常说的socket，还有值得注意的是无论打开什么文件，内核都会返回给应用程序一个<strong>文件描述符</strong>。当关闭文件后，内核释放资源，同时回收文件描述符。</p>
 <h4 id="进程的内存模型"><a href="#进程的内存模型" class="headerlink" title="进程的内存模型"></a>进程的内存模型</h4><p>每个进程都有独立的上下文，它拥有完整的虚拟内存空间。</p>
 <p>CPU执行进程，总是在不断对进程的切换中，这种叫时分复用，而且时间很快，从而让人有一种进程并行的感觉，即单个cpu在一个时刻只能做一件事</p>
-<p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131152720823-2025172513.png" alt=""></p>
+<p><img src="http://image.myblog-tao.cn//234504_kQl5_1403215.png" alt=""></p>
 <h3 id="I-O流程"><a href="#I-O流程" class="headerlink" title="I/O流程"></a>I/O流程</h3><p>说下应用程序读文件的大致流程（写文件也差不多），当一个进程想要向磁盘或者接受网络数据时，它会先发起系统调用（可以通过异常等方式），然后将程序控制权交给操作系统，</p>
 <p>操作系统向指定的文件发起读的操作，返回给程序一个文件操作符，然后接下来就是比较有意思的地方了，因为文件读出来是需要时间的，文件读出来后会存到内核的缓冲区中（DMA），然后中断提醒CPU，CPU再由内核缓冲区读取到用户进程中，在这个过程中，这段时间里，用户进程可以有阻塞，非阻塞，同步，异步各种状态</p>
 <h3 id="linux的I-O模型"><a href="#linux的I-O模型" class="headerlink" title="linux的I/O模型"></a>linux的I/O模型</h3><p>网络IO的本质是socket的读取，socket在linux系统被抽象为流，IO可以理解为对流的操作。对于一次IO访问（以read举例），数据会先被拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。所以说，当一个read操作发生时，它会经历两个阶段：</p>
@@ -254,22 +254,22 @@
 <p><strong>异步IO（asynchronous IO）</strong></p>
 <p>接下来进行分类的介绍</p>
 <h5 id="阻塞I-O"><a href="#阻塞I-O" class="headerlink" title="阻塞I/O"></a>阻塞I/O</h5><p>阻塞i/o就是整个过程用户进程都是阻塞，它发起系统调用后就被挂起了，直到数据被搬运到缓冲区中，然后数据从缓冲区读进用户进程，它才被唤醒，真个过程它都处于挂起状态（什么都不干）</p>
-<p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131152924101-510560621.png" alt=""></p>
+<p><img src="http://image.myblog-tao.cn//20150405_VKYH.png" alt=""></p>
 <h5 id="非阻塞i-o"><a href="#非阻塞i-o" class="headerlink" title="非阻塞i/o"></a>非阻塞i/o</h5><p>用户进程发起系统调用后，它没有被挂起，而是继续执行，但它要不断轮询看数据是否运到内核了，数据到了内核后，用户进程将数据从内核读取到用户进程</p>
-<p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153423422-1015880400.png" alt=""></p>
+<p><img src="http://image.myblog-tao.cn//20152818_DXcj.png" alt=""></p>
 <h5 id="多路复用I-O"><a href="#多路复用I-O" class="headerlink" title="多路复用I/O"></a>多路复用I/O</h5><p>多路复用I/O比较复杂，它整个过程也是阻塞的，但不同的是它可以阻塞多个i/o，同时阻塞多个socket连接，有epoll,，poll,select等，epoll是linux最高效的，<strong>多路复用的特点是通过一种机制一个进程能同时等待多个IO文件描述符，内核监视这些文件描述符（套接字描述符），其中的任意一个进入读就绪状态，select， poll，epoll函数就可以返回。</strong></p>
 <p>select,poll,epoll都是内核状态的函数调用</p>
 <p><strong>用户进程发起系统调用后，处于挂起状态，同时监听多个socket连接，只要有其中有一个数据到达内核，用户进程就被唤醒工作，然后将数据从内核读取到用户进程，其实就是由epoll，select同时监听多个io对象，当io对象发生变化的时候，就通知用户进程读写数据，进行操作</strong></p>
 <p>即多个io对象复用一个进程，这样可以很充分的利用阻塞的这段时间</p>
 <p>IO多路复用是同步阻塞模式</p>
-<p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153110563-1388062089.png" alt=""></p>
-<h5 id="异步驱动I-O"><a href="#异步驱动I-O" class="headerlink" title="异步驱动I/O"></a>异步驱动I/O</h5><p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153204997-189606878.png" alt=""></p>
+<p><img src="http://image.myblog-tao.cn//20164149_LD8E.png" alt=""></p>
+<h5 id="异步驱动I-O"><a href="#异步驱动I-O" class="headerlink" title="异步驱动I/O"></a>异步驱动I/O</h5><p><img src="http://image.myblog-tao.cn//20175459_gtgw.png" alt=""></p>
 <p>这个理论上是最好的，但在linux系统中很难实现</p>
-<h5 id="信号驱动i-o"><a href="#信号驱动i-o" class="headerlink" title="信号驱动i/o"></a>信号驱动i/o</h5><p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153225562-694302020.png" alt=""></p>
+<h5 id="信号驱动i-o"><a href="#信号驱动i-o" class="headerlink" title="信号驱动i/o"></a>信号驱动i/o</h5><p><img src="http://image.myblog-tao.cn//21091434_DsZb.png" alt=""></p>
 <p>这个很少使用到</p>
 <h4 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h4><p>异步io在linux中很难实现，但也有一种模拟异步io的方法即多线程和同步阻塞io进行模拟，设置一个主线程，用其它线程进行同步io操作，当io完成时通知主线程去读取进程中的数据，进行后续操作，因为是同一个进程，所以可以共享内存资源。进而实现类似异步io的效果，在linux中有libev,libeio这样的异步io实现库，而在windows，则使用了iocp,可以说异步io的核心就是在子线程上执行io操作，在执行完毕后通知调用者提取相关数据。只不过linux是用户层的线程池，而iocp是内核的线程池。</p>
 <h4 id="Node模型"><a href="#Node模型" class="headerlink" title="Node模型"></a>Node模型</h4><p>首先说下常见的模型要么是单进程多线程，要么是多进程单线程，node是属于后者</p>
-<p><img src="https://img2018.cnblogs.com/blog/1580344/202001/1580344-20200131153311504-216331194.png" alt=""></p>
+<p><img src="http://image.myblog-tao.cn//849589-20170709225535712-2041092305.png" alt=""></p>
 <p>node中最重的就是包含了libuv这个，node的所有io操作都是通过它来实现的，libuv实现了异步IO，libuv中包含一个事件队列（可以理解为就是主线程），如果是网络io，它会使用epoll这种io多路复用的方式(在linux中)对io进行处理，而对于磁盘的io操作，它会采用多线程+阻塞io的方式进行io操作，它读写完数据后就将数据返回给js引擎。从而实现io操作。</p>
 <p>最后提一点epoll这种io多路复用模型使用的很广，redis,nginx,都不同程度使用了它，它2者也可以归为多进程单线程这种模型。</p>
 
@@ -559,7 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,11 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
