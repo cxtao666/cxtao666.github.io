@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://image.myblog-tao.cn//20140313220815921.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//20161125180122070.png">
 <meta property="article:published_time" content="2020-07-26T05:18:47.000Z">
-<meta property="article:modified_time" content="2020-07-26T11:20:03.909Z">
+<meta property="article:modified_time" content="2020-07-26T11:37:43.024Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="webkit">
 <meta name="twitter:card" content="summary">
@@ -239,7 +239,7 @@
 <h3 id="Android-chromium"><a href="#Android-chromium" class="headerlink" title="Android chromium"></a>Android chromium</h3><p>Android 应用使用共享内存的方式，实现chromium的程序段在多个安卓进程之间共享，也就是启动了安卓应用后，安卓应用就带有chromium的功能了，chromium的功能被封装webview控件中。Android WebView使用了单进程架构的Chromium来加载和渲染网页，因此它的Browser端、Render端和GPU端都不是以进程的形式存在的，而是以线程的形式存在。其中，Browser端实现在App的UI线程中，Render端实现在一个独立的线程中，而GPU端实现在App的Render Thread中。</p>
 <p><img src="http://image.myblog-tao.cn//20161125180122070.png" alt=""></p>
 <p>和chromuim 一样，安卓 chromium 还是 Render端  会 调用 webkit 实现 页面的渲染 ( 调用webkit 需要用到多个线程 )，而 Browser端 负责数据的请求 ，接受用户的事件 和 最后 的 页面展示，gpu 端 使用opengl 或者 skia 实现 界面的 绘制。 有个小的区别是，为了提高性能，Render端也可以直接 调用 GPU 端 (在app的 render 线程中) 进行界面的绘制和显示，而不必一定要Browser来 调用 GPU 端实现 界面的 显示。在安卓中，chromium 也没有了复杂的进程间通信，而是Render端和Browser端会将gpu命令提交给DeferredGpuCommandService 服务，再由它 提交给 App 的 Render Thread 执行。</p>
-<h3 id="Electron-架构"><a href="#Electron-架构" class="headerlink" title="Electron 架构"></a>Electron 架构</h3><p>最后，再来说下electron，electron和chromium的架构很像，但不同的地方是electron的渲染进程不是处于沙盒模型之后的，渲染进程可以选择开启node.js 的功能，当然这会占用更多的内存，此外，还提供了很多 native 的 api 。还有就是因为 webkit 中使用 的 js 事件队列 中和 node 中基于 libuv 的事件队列 会冲突，所以electron 是 把 node 集成到了 chromium 中，使用 了 webkit 的事件队列 ，并保留了 node 中 原生模块 , 再使用v8 引擎去解析 js 代码。electron 的渲染进程也不需要像 chromiim 一样离屏渲染。以上几点，算是electron 和 chromium的 显著区别了。当然，对于electron 这种开发模式，一方面提高了开发效率，而且实现了跨端，但是另一方面应用的性能也会降低，但是，硬件性能的提升，会让这种应用性能的降低不那么容易感知出来，而且。像vscode 这种应用也是 electron开发出来的 ，这也证明了这种开发模式的可行性 。所以，前端一统天下指日可待。</p>
+<h3 id="Electron-架构"><a href="#Electron-架构" class="headerlink" title="Electron 架构"></a>Electron 架构</h3><p>最后，再来说下electron，electron和chromium的架构很像，但不同的地方是electron的渲染进程不是处于沙盒模型之下的，渲染进程可以选择开启node.js 的功能，当然这会占用更多的内存，此外，还提供了很多 native 的 api 。还有就是因为 webkit 中使用 的 js 事件队列 中和 node 中基于 libuv 的事件队列 会冲突，所以electron 是 把 node 集成到了 chromium 中，使用 了 webkit 的事件队列 ，并保留了 node 中 原生模块 , 再使用v8 引擎去解析 js 代码。electron 的渲染进程也不需要像 chromiim 一样离屏渲染。以上几点，算是electron 和 chromium的 显著区别了。当然，对于electron 这种开发模式，一方面提高了开发效率，而且实现了跨端，但是另一方面应用的性能也会降低，但是，硬件性能的提升，会让这种应用性能的降低不那么容易感知出来，而且。像vscode 这种应用也是 electron开发出来的 ，这也证明了这种开发模式的可行性 。所以，前端一统天下指日可待。</p>
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>做了2篇文章关于webkit 这个方向的了，大部分我都是在自己力所能及得范围进行介绍了，因为涉及到的知识偏cpp 和 操作系统 ，而且，参考的文章也不多，不过，还好，我还是找到了几个大佬的博客可以进行参考，我的这2篇文章也是看了他们的博客，然后总结，于是我也把参考链接贴在下面了。完结，撒花！</p>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>老罗的博客 <a href="https://blog.csdn.net/Luoshengyang" target="_blank" rel="noopener">https://blog.csdn.net/Luoshengyang</a></p>
 <p><a href="https://blog.csdn.net/yl02520" target="_blank" rel="noopener">https://blog.csdn.net/yl02520</a></p>
@@ -525,19 +525,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
