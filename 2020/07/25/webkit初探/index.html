@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://image.myblog-tao.cn//74.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//yw9qb5brpt.png">
 <meta property="article:published_time" content="2020-07-25T05:58:10.000Z">
-<meta property="article:modified_time" content="2020-07-26T05:16:17.743Z">
+<meta property="article:modified_time" content="2020-07-26T05:31:40.881Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="webkit">
 <meta name="twitter:card" content="summary">
@@ -283,7 +283,7 @@
 
 <p>![](<a href="http://image.myblog-tao.cn//2-3" target="_blank" rel="noopener">http://image.myblog-tao.cn//2-3</a> 主进程和渲染进程.mp4_20200520_220716.560.png)</p>
 <p>再来说下，这种多进程架构的优缺点吧，通过给每一个tab窗口开一个进程，这样最大的好处，就是进程的内存空间是独立的，页面之间是不会相互影响的，所以就算浏览器中的一个页面出现了崩溃的问题，对于其它打开的浏览器页面并不会造成影响，而且，因为内存空间相互隔离的原因，所以不同的tab页面之间是不能访问(除非使用IPC的方式)，所以保证了安全性。当然，这样做的方式也是有缺点的，那就是多进程会加大内存的开销，这点在window 系统上会体现得更加得明显，虽然,chrome 也进行了很多的优化。</p>
-<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看我的第二篇博客。</p>
+<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看<a src="https://cxtao666.github.io/2020/07/26/Chromium%E5%88%9D%E6%8E%A2/">我的第二篇博客</a>。</p>
 
 <h3 id="WebKit-架构"><a href="#WebKit-架构" class="headerlink" title="WebKit 架构"></a>WebKit 架构</h3><p>简单扯完了浏览器的架构，再回来说webkit。因为浏览器的渲染进程会调用到浏览器的渲染引擎来完成页面的渲染，所以 chrome 的 渲染进程 会 利用webkit 来 实现 html,css 的解析 和 js 代码的执行。</p>
 <p><strong>下面是webkit的架构图</strong></p>
@@ -297,13 +297,13 @@
 <p><img src="http://image.myblog-tao.cn//yw9qb5brpt.png" alt=""></p>
 <p>接下来，按照这张图，我来简单说下，webkit的工作流程，webkit再拿到html.css.js这些资源文件之后，就会开始解析，把html解析成dom树，把css解析成 style rules， 然后生成结合两者生成 render 树，再生成 Graphics Layer tree ，然后再进行光栅化产生纹理，最后合成纹理，展示在屏幕上。</p>
 <h4 id="生成dom树"><a href="#生成dom树" class="headerlink" title="生成dom树"></a>生成dom树</h4><p>在chrome 浏览器中，打开一个新的标签页，渲染进程就会创建一个新的webview，该webview是整个网页生成和渲染的入口，webview的构造函数会创建一个新的page对象，它和webview相对应，每个webview只存在一个page对象，每个page中有且仅有一个mainFrame，每个Frame 都有自己的一个 Document，在MainFrame中可以生成多个子Frame，就是我们平常见到的网页中的多Frame页面。Document 对应到的也就是DOM中的document对象，不过。此时，它是在webcore 中，而js 能 访问到的对象 是 在 js 引擎中，所以，这里涉及到对象注入的问题，后面再讲。</p>
-<p>在把页面的基础对象建立后，拿到了html文件，就是用html-parser 模块 开始 html 的解析，解析的过程是从上到下，如果在html页面中出现了 <script>标签，那么默认是需要等待<script> 标签中的 js 代码 解析执行完毕后，再往下解析 html的，而如果<script>标签使用了外链的方式，那么还需要等待网络去获取 js 脚本，正因为js 代码的执行会阻塞 主线程 解析 html ，所以一般推荐 是 把 <script> 标签都放在 页面的 最后，还有就是虽然js线程和渲染线程是互斥的，但它们是运行在不同的线程上。webkit为了提供性能，所以针对这个问题，做了优化，就是html文档的预解析，当遇到js脚本时，主线程会停止html的解析，但是会尝试去加载其它的图片，音视频资源文件等。当html解析完毕后，dom树也就构建完毕了。每个html标签都会被解析成HTMLelement，解析完成后，就可以在js线程访问到了。</p>
+<p>在把页面的基础对象建立后，拿到了html文件，就是用html-parser 模块 开始 html 的解析，解析的过程是从上到下，如果在html页面中出现了<strong>script标签</strong>，那么默认是需要等待<strong>script</strong> 标签中的 js 代码 解析执行完毕后，再往下解析 html的，而如果<strong>script</strong>标签使用了外链的方式，那么还需要等待网络去获取 js 脚本，正因为js 代码的执行会阻塞 主线程 解析 html ，所以一般推荐 是 把 <strong>script</strong> 标签都放在 页面的 最后，还有就是虽然js线程和渲染线程是互斥的，但它们是运行在不同的线程上。webkit为了提供性能，所以针对这个问题，做了优化，就是html文档的预解析，当遇到js脚本时，主线程会停止html的解析，但是会尝试去加载其它的图片，音视频资源文件等。当html解析完毕后，dom树也就构建完毕了。每个html标签都会被解析成HTMLelement，解析完成后，就可以在js线程访问到了。</p>
 <h4 id="生成css树"><a href="#生成css树" class="headerlink" title="生成css树"></a>生成css树</h4><p>css的文件的加载是异步的，css的解析和html的解析是并发进行的，其实render树的生成和dom 树的生成也是同时进行的，每解析一个html标签，就会挂载一个dom结点，同时，dom结点也会去和css tree 结合，生成 renderlayer Tree ，每个 renderlayer  结点 就是 一个css 的 盒子，当dom树构建完毕，render 树也就构建完毕了 。因为可能会出现js 代码中 访问 css 的情况，所以 webkit 会暂停 那些 试图 访问 某些没有被加载完成的 css 属性 的 js 代码。</p>
 <h4 id="重绘和回流"><a href="#重绘和回流" class="headerlink" title="重绘和回流"></a>重绘和回流</h4><p>回流也叫做重排，当节点的尺寸和位置发生改变的时候，就会触发回流，回流会计算页面的布局，并把受影响的部分重新绘制到屏幕。当页面第一次加载的时候，因为要构建布局，所以必然会触发回流。</p>
 <p>当渲染树中的一些元素需要更新一些不会改变元素不局的属性，比如只是影响元素的外观、风格、而不会影响布局的那些属性，这时候就只发生重绘。当然，页面首次加载也是要重绘一次的。</p>
 <h4 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h4><p>renderlayer Tree 会进一步构建成  Graphics Layer tree ，也就是图层， 然后进行光栅化，所谓光栅化就是要对 Graphics Layer 进行实际的绘制，这里会使用到底层的一些 图形库完成绘制，而且根据方式的不同，也分为使用CPU（软件渲染）和使用GPU（硬件渲染）两种，如果使用的是CPU 进行光栅化，那么在 chrome 使用的就是Skia 库，如果使用的是 GPU 进行光栅化，那么使用的就是opengl,光栅化后的 图像叫纹理，不过使用 CPU光栅化有个缺点，就是 cpu 光栅化后的纹理仍然需要上传到 gpu，纹理其实就是由一个个像素点组成的图像，只不过还没有显示到屏幕上，最后使用 gpu 进行纹理的合成，就可以显示在 屏幕上了。</p>
 <h4 id="Dom-binding"><a href="#Dom-binding" class="headerlink" title="Dom binding"></a>Dom binding</h4><p>再回到前面的问题，如果需要把webkit中实现的dom对象或html5对象暴露给javascript，让web开发者在javascript 中能够访问到，就需要在webkit 中为每个对象实现相应的js binding文件，以v8的引擎为例，需要为HTMLDocument  对象实现一个 V8HTMLDocument 的 对象，目的是转化 HTMLDocument 对象 为 v8:Object 。但是 DOM 的对象是很庞大的，再加上后续的html5 对象，如果给每一个cpp文件实现一个相应的转换类，工作量会很大，所以为了解决这个问题，webkit 编写了一套工具，去自动生成 binding 文件，这个过程需要利用到WebIDL ,它是一种特殊的定义语言，用来定义webcore的接口如何绑定到外部语言，这样，只要把webIDL 文件解析执行了，生成的cpp代码就会绑定到webcore的接口，然后再用v8去调用生成的代码，就可以实现v8访问webcore了。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>webkit 实际工作的流程比我上面介绍的要复杂的多，很多流程我都是简述的，但是可以简单一点的说，就是在chrome 中，webkit的核心是webcore，它的工作就是把html和css渲染成图层，同时要将CSSOM 和 DOM 注入到 js 引擎中 ，当 js 引擎修改了 DOM 的结构时，重新 渲染图层 。大体就先介绍到这了。写这篇文章也是坑坑洼洼，因为webkit是cpp写的，而且chrome本身也是涉及到比较多的系统知识，例如icp，所以，很多去看很多前端写的文章并没什么价值，chrome架构的具体介绍，我会在下一篇文章中讲，未完待续...</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>webkit 实际工作的流程比我上面介绍的要复杂的多，很多流程我都是简述的，但是可以简单一点的说，就是在chrome 中，webkit的核心是webcore，它的工作就是把html和css渲染成图层，同时要将CSSOM 和 DOM 注入到 js 引擎中 ，当 js 引擎修改了 DOM 的结构时，重新 渲染图层 。大体就先介绍到这了。写这篇文章也是坑坑洼洼，因为webkit是cpp写的，而且chrome本身也是涉及到比较多的系统知识，例如icp，所以，很多去看很多前端写的文章并没什么价值，chrome架构的具体介绍，我会在下一篇文章中讲，未完待续…</p>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://ming1016.github.io/2017/10/11/deeply-analyse-webkit/" target="_blank" rel="noopener">https://ming1016.github.io/2017/10/11/deeply-analyse-webkit/</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1360028" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1360028</a></p>
 <p><a href="https://juejin.im/post/5e11cd225188253a73288212#heading-5" target="_blank" rel="noopener">https://juejin.im/post/5e11cd225188253a73288212#heading-5</a></p>
@@ -468,7 +468,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webkit-介绍"><span class="toc-number">2.</span> <span class="toc-text">webkit 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器的架构"><span class="toc-number">3.</span> <span class="toc-text">浏览器的架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器的组成"><span class="toc-number">3.1.</span> <span class="toc-text">浏览器的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程架构"><span class="toc-number">3.2.</span> <span class="toc-text">多进程架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebKit-架构"><span class="toc-number">4.</span> <span class="toc-text">WebKit 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webkit的工作流程"><span class="toc-number">5.</span> <span class="toc-text">webkit的工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成dom树"><span class="toc-number">5.1.</span> <span class="toc-text">生成dom树</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webkit-介绍"><span class="toc-number">2.</span> <span class="toc-text">webkit 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器的架构"><span class="toc-number">3.</span> <span class="toc-text">浏览器的架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器的组成"><span class="toc-number">3.1.</span> <span class="toc-text">浏览器的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程架构"><span class="toc-number">3.2.</span> <span class="toc-text">多进程架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebKit-架构"><span class="toc-number">4.</span> <span class="toc-text">WebKit 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webkit的工作流程"><span class="toc-number">5.</span> <span class="toc-text">webkit的工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成dom树"><span class="toc-number">5.1.</span> <span class="toc-text">生成dom树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成css树"><span class="toc-number">5.2.</span> <span class="toc-text">生成css树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重绘和回流"><span class="toc-number">5.3.</span> <span class="toc-text">重绘和回流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#光栅化"><span class="toc-number">5.4.</span> <span class="toc-text">光栅化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dom-binding"><span class="toc-number">5.5.</span> <span class="toc-text">Dom binding</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">7.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -594,11 +594,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color2">webkit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webkit</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
