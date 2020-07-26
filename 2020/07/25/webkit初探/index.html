@@ -6,24 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>nust.js初探 | 欢乐涌动</title>
+  <title>webkit初探 | 欢乐涌动</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目目标把我个人博客的前端界面部分使用nuxt框架进行服务端渲染">
+  <meta name="description" content="前言最近想要把旧的知识点整理起来，为面试做准备，于是打算从头开始，把css和html重新复习一遍，记一些css的面试题。不过，这个过程挺无聊的，虽然css能做很漂亮的界面，但是css要记的知识点太多了，而且很多也没有什么逻辑性可言，最关键的是我css和html很多都忘了...因为有很多UI库可以使用。当然了肯定是框架工具要会用，原理也要懂，这样才能又能造轮子，又能写外包...，所以，我就又开了篇博">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nust.js初探">
-<meta property="og:url" content="http://yoursite.com/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/index.html">
+<meta property="og:title" content="webkit初探">
+<meta property="og:url" content="http://yoursite.com/2020/07/25/webkit%E5%88%9D%E6%8E%A2/index.html">
 <meta property="og:site_name" content="欢乐涌动">
-<meta property="og:description" content="项目目标把我个人博客的前端界面部分使用nuxt框架进行服务端渲染">
+<meta property="og:description" content="前言最近想要把旧的知识点整理起来，为面试做准备，于是打算从头开始，把css和html重新复习一遍，记一些css的面试题。不过，这个过程挺无聊的，虽然css能做很漂亮的界面，但是css要记的知识点太多了，而且很多也没有什么逻辑性可言，最关键的是我css和html很多都忘了...因为有很多UI库可以使用。当然了肯定是框架工具要会用，原理也要懂，这样才能又能造轮子，又能写外包...，所以，我就又开了篇博">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://image.myblog-tao.cn//1580344-20200131142344036-720942694.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//1580344-20200131142405828-1131757079.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//1580344-20200131142416797-305585681.png">
-<meta property="article:published_time" content="2020-04-23T16:28:37.000Z">
-<meta property="article:modified_time" content="2020-07-06T05:39:45.053Z">
+<meta property="og:image" content="http://image.myblog-tao.cn//16f758bbcd32f249.webp">
+<meta property="og:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B76.PNG">
+<meta property="og:image" content="http://image.myblog-tao.cn//16f758bb346202ed.webp">
+<meta property="og:image" content="http://image.myblog-tao.cn//49.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//74.png">
+<meta property="og:image" content="http://image.myblog-tao.cn//yw9qb5brpt.png">
+<meta property="article:published_time" content="2020-07-25T05:58:10.000Z">
+<meta property="article:modified_time" content="2020-07-26T05:16:17.743Z">
 <meta property="article:author" content="cxtao">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="webkit">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://image.myblog-tao.cn//1580344-20200131142344036-720942694.png">
+<meta name="twitter:image" content="http://image.myblog-tao.cn//16f758bbcd32f249.webp">
   
   
     <link rel="icon" href="/assets/avatar.jpg">
@@ -176,20 +179,20 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-nust-js初探" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-webkit初探" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      nust.js初探
+      webkit初探
     </h1>
   
 
         
-        <a href="/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/" class="archive-article-date">
-  	<time datetime="2020-04-23T16:28:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/07/25/webkit%E5%88%9D%E6%8E%A2/" class="archive-article-date">
+  	<time datetime="2020-07-25T05:58:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
 </a>
           <!-- 需要添加的位置 -->
          <!-- 开始添加字数统计-->
@@ -199,7 +202,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">594字</span>
+        <span class="post-count">3.5k字</span>
       </span>
     </span>
 
@@ -208,7 +211,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">12分</span>
       </span>
     </span>
 </div>
@@ -220,29 +223,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h4><p><strong>把我个人博客的前端界面部分使用nuxt框架进行服务端渲染</strong></p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近想要把旧的知识点整理起来，为面试做准备，于是打算从头开始，把css和html重新复习一遍，记一些css的面试题。不过，这个过程挺无聊的，虽然css能做很漂亮的界面，但是css要记的知识点太多了，而且很多也没有什么逻辑性可言，最关键的是我css和html很多都忘了...因为有很多UI库可以使用。当然了肯定是框架工具要会用，原理也要懂，这样才能又能造轮子，又能写外包...，所以，我就又开了篇博客，用来记录下webkit的探索之旅。先说明下，我这篇文章中的观点，也是从网上的博客中东拼西凑，再加入些自己的观点和理解些的，毕竟我也没去看webkit 的源码，所以可能在文章会出现偏差，也请读者自行鉴别。</p>
+
 <a id="more"></a>
-<h4 id="nuxt介绍"><a href="#nuxt介绍" class="headerlink" title="nuxt介绍"></a>nuxt介绍</h4><p><strong>nuxt可以把spa根据路由将单页面分割成多页面,比起vue的ssr渲染要更容易使用</strong></p>
-<h4 id="nuxt的使用"><a href="#nuxt的使用" class="headerlink" title="nuxt的使用"></a>nuxt的使用</h4><h5 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h5><p><code>npx create-nuxt-app &lt;项目名&gt;</code></p>
-<h5 id="nuxt的目录结构"><a href="#nuxt的目录结构" class="headerlink" title="nuxt的目录结构"></a>nuxt的目录结构</h5><p><img src="http://image.myblog-tao.cn//1580344-20200131142344036-720942694.png" alt=""></p>
-<p>其中layouts目录用于存放APP.vue,将其改名为default.vue,既可使用全局的界面配置,注意得用 <code>&lt;nuxt/&gt;</code>代替<code>&lt;router-view&gt;</code></p>
-<p>nuxt的界面嵌套<br><img src="http://image.myblog-tao.cn//1580344-20200131142405828-1131757079.png" alt=""></p>
-<p>pages目录用于存放vue项目的路由页面,nuxt默认情况下根据该目录,对路由进行配置,自动生成路由,所以无特殊情况是不需要自己手动配置路由的</p>
-<p><img src="http://image.myblog-tao.cn//1580344-20200131142416797-305585681.png" alt=""></p>
-<p>components目录用于将vue项目的组件移动到此目录</p>
-<p>plugins目录是插件的使用,例如如果项目使用了element.ui,则需要在该目录下配置,配置方法是在目录下新建elementui.js,并在文件下写入如下代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> ElementUi <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/index.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/display.css'</span></span><br><span class="line">Vue.use(ElementUi);</span><br></pre></td></tr></table></figure>
 
-<p>同时使用npm安装element-ui插件</p>
-<p>然后在nuxt.config.js文件中进行配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="string">'~/plugins/elementui'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="webkit-介绍"><a href="#webkit-介绍" class="headerlink" title="webkit 介绍"></a>webkit 介绍</h3><p>先来介绍下webkit 是个啥吧，webkit最早是苹果的Safari 浏览器的内核，后来的chrome浏览器也采用了webkit。浏览器的内核简单来说就是渲染引擎，其作用就是把html,css,js 这些字符串渲染成一张图像，显示出来。具体划分的话，内核分为排版引擎和js引擎，排版引擎用于界面的绘制和渲染,js引擎用于执行js代码。浏览器的内核也有很多种，常见的如下。</p>
 
-<p>assets文件用于存放需要被webpack打包的图片和css文件</p>
-<p><strong>注意:在使用路径引入图片时需要在路径前面加上~</strong>,<strong>不然会报错</strong></p>
-<p>store文件夹用于存放vuex文件,在文件夹下新建index.js文件,导出方式大概如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">export const state &#x3D; () &#x3D;&gt;(&#123; </span><br><span class="line">  isLogin: false,</span><br><span class="line">  user:&quot;&quot;</span><br><span class="line">&#125;)  &#x2F;&#x2F;state必须是函数才行</span><br><span class="line"></span><br><span class="line">export const  mutations &#x3D; &#123;</span><br><span class="line">  userStatus(state, flag) &#123;</span><br><span class="line">    state.isLogin &#x3D; flag</span><br><span class="line">  &#125;,</span><br><span class="line">  setuser(state,flag)&#123;</span><br><span class="line">    state.user &#x3D; flag;</span><br><span class="line">    window.$cookies.set(&quot;user_session&quot;,&quot;haslogin&quot;,60 * 60 * 24)</span><br><span class="line">  &#125;,</span><br><span class="line">  getuser(state,flag)&#123;</span><br><span class="line"></span><br><span class="line">   var value &#x3D;  window.$cookies.get(&quot;user_session&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if(value &#x3D;&#x3D;&#x3D; &quot;haslogin&quot;)&#123;</span><br><span class="line"></span><br><span class="line">      state.isLogin &#x3D; true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> export const actions &#x3D; &#123;</span><br><span class="line">  userLogin(&#123;commit&#125;, flag) &#123;</span><br><span class="line">    commit(&quot;userStatus&quot;, flag)</span><br><span class="line">  &#125;,</span><br><span class="line">  setusername (&#123;commit&#125;,flag)&#123;</span><br><span class="line">    commit(&quot;setuser&quot;,flag)</span><br><span class="line">  &#125;,</span><br><span class="line">  getusername (&#123;commit&#125;,flag)&#123;</span><br><span class="line">    commit(&quot;getuser&quot;,flag)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> export const getters &#x3D; &#123;</span><br><span class="line">  isLogin: state &#x3D;&gt; state.isLogin,</span><br><span class="line">  user:state &#x3D;&gt;state.user</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>内核名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Trident</td>
+<td>大名鼎鼎的IE浏览器的内核，IE8的JavaScript引擎是Jscript，IE9开始用Chakra</td>
+</tr>
+<tr>
+<td>Gecko</td>
+<td>火狐浏览器的内核，JavaScript引擎是：SpiderMonkey（1.0-3.0）/ TraceMonkey（3.5-3.6）/ JaegerMonkey（4.0）</td>
+</tr>
+<tr>
+<td>Webkit</td>
+<td>Safari和Chrome的内核，包含WebCore排版引擎及JavaScriptCore解析引擎，在chrome浏览器中，把js引擎改换成了v8.</td>
+</tr>
+<tr>
+<td>Blink</td>
+<td>算是webkit 内核的衍生物，google在webkit的基础上开发出的浏览器内核，还是使用WebCore和v8。现在Chromium和chrome 都是使用了这个浏览器内核。</td>
+</tr>
+</tbody></table>
+<p>这里，还有一个问题就是 ios 和 安卓 因为 苹果 和 google 的 原因，所以 也都是使用了webkit的内核，(当然安卓现在准确的讲使用的是基于Blink的Chromium)。所以 可以说随着 ie 使用人数的减少 ，webkit 内核已经占领了 桌面 和 移动端 的绝大多数。 </p>
 
-<h4 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h4><p>nuxt初探先到此,当然还有很多东西没有涉及,像动态路由,中间件的使用,还有vuex项目的使用等等,项目也还没改造完成,所以未完待续</p>
+<p>还有一个有意思的点，webkit 之所以开源，是因为 它的 前身是 KDE的一个开源项目 KHTML(html引擎),苹果在khtml的基础上开发出了WebCore，同时在kjs(ktml配套的js引擎)的基础上开发了JavaScriptCore，并开源出来。然后google 又在 webkit 的基础上保留了WebCore，加入了v8 ，开发出了Blink引擎，所以Blink和webkit其实都可以看成是 KHTML 的衍生物，在保留了KHTML 的基础上进行了修改，所以，本文也不做具体区分了，把 chrome 的内核也称为 webkit。</p>
+
+<h3 id="浏览器的架构"><a href="#浏览器的架构" class="headerlink" title="浏览器的架构"></a>浏览器的架构</h3><h4 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h4><p>在上面有了个对webkit的简单理解之后，再来说下浏览器的架构，因为浏览器内核是在浏览器中被使用到的，如果在安卓和ios上，则是使用了webview组件去调用浏览器内核。因为浏览器有很多种，这里，就以开发中最常使用到chrome浏览器器为例。</p>
+
+<p>首先，浏览器大致可以分为5个部分，分别是</p>
+
+<ol>
+<li>用户界面(地址栏、前进/后退按钮、书签菜单等)</li>
+<li>浏览器引擎(在用户界面和渲染引擎之间传送指令)</li>
+<li>渲染引擎(解析 HTML、CSS和JS并呈现页面)</li>
+<li>后端服务层(网络、数据存储如Cookie、Storage等)</li>
+<li>特别服务层(记住密码、暗黑模式等)</li>
+</ol>
+<p>结构图如下:</p>
+<img src="http://image.myblog-tao.cn//16f758bbcd32f249.webp" style="zoom:100%;" />
+
+<h4 id="多进程架构"><a href="#多进程架构" class="headerlink" title="多进程架构"></a>多进程架构</h4><p>chrome 在处理这些浏览器结构的时候，使用了多进程进行处理。当使用了chrome浏览器打开网页的时候，打开系统的任务管理器，就可以看到chrome是有多个进程存在的。</p>
+<p><img src="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B76.PNG" alt=""></p>
+<p><strong>chrome 的多进程架构图如下</strong></p>
+<p><img src="http://image.myblog-tao.cn//16f758bb346202ed.webp" alt=""></p>
+<p>这其中最重要的就是渲染进程和主进程了，主进程的主要负责功能是显示浏览器的界面，子进程的管理和提供存储功能等，而渲染进程就是浏览器的核心了，Chrome中只有一个主进程，但是可以存在多个渲染进程。渲染进程核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</p>
+
+<p>还有一个有意思的框架可以学下,就是<b>electron</b>，它就是基于这种多进程的浏览器架构和node.js实现的一个用于开发桌面应用程序的框架，它的一个窗口就是一个渲染进程，主进程用于创建渲染进程并控制渲染进程，和渲染进程之间进行必要的通信<b>IPC</b>。不过和chrome有区别的是，渲染进程除了能够使用DOM的api外，还能使用node.js的api。我觉得学习electron，对于理解chrome浏览器的多进程架构是很有帮助的。还有vscode就是基于electron开发的。</p>
+
+<p>这里，盗张慕课网的图，嘻嘻</p>
+
+<p>![](<a href="http://image.myblog-tao.cn//2-3" target="_blank" rel="noopener">http://image.myblog-tao.cn//2-3</a> 主进程和渲染进程.mp4_20200520_220716.560.png)</p>
+<p>再来说下，这种多进程架构的优缺点吧，通过给每一个tab窗口开一个进程，这样最大的好处，就是进程的内存空间是独立的，页面之间是不会相互影响的，所以就算浏览器中的一个页面出现了崩溃的问题，对于其它打开的浏览器页面并不会造成影响，而且，因为内存空间相互隔离的原因，所以不同的tab页面之间是不能访问(除非使用IPC的方式)，所以保证了安全性。当然，这样做的方式也是有缺点的，那就是多进程会加大内存的开销，这点在window 系统上会体现得更加得明显，虽然,chrome 也进行了很多的优化。</p>
+<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看我的第二篇博客。</p>
+
+<h3 id="WebKit-架构"><a href="#WebKit-架构" class="headerlink" title="WebKit 架构"></a>WebKit 架构</h3><p>简单扯完了浏览器的架构，再回来说webkit。因为浏览器的渲染进程会调用到浏览器的渲染引擎来完成页面的渲染，所以 chrome 的 渲染进程 会 利用webkit 来 实现 html,css 的解析 和 js 代码的执行。</p>
+<p><strong>下面是webkit的架构图</strong></p>
+<p><img src="http://image.myblog-tao.cn//49.png" alt=""></p>
+<p>实线部分是共享的，虚线部分会根据不同的平台有不同的实现。</p>
+<p>比如js 引擎方面 ，Chrome 就使用了 v8。</p>
+<p>还有就是webkit2 已经支持了多进程的使用了，即分UI进程和Web进程，Web进程用于页面渲染，UI进程用于页面的展示。但因为在chrome中, chrome有自己的一套多进程架构，webkit 还是一个库的形式被渲染进程调用，还是以多线程的方式负责页面的渲染工作，所以这里简单提一下就可以了。</p>
+<p><strong>WebCore的架构图</strong></p>
+<p><img src="http://image.myblog-tao.cn//74.png" alt=""></p>
+<h3 id="webkit的工作流程"><a href="#webkit的工作流程" class="headerlink" title="webkit的工作流程"></a>webkit的工作流程</h3><p>知道了webkit的大致架构和作用后，接下来，就是了解webkit的工作流程了，先上张webkit的主要工作流程图</p>
+<p><img src="http://image.myblog-tao.cn//yw9qb5brpt.png" alt=""></p>
+<p>接下来，按照这张图，我来简单说下，webkit的工作流程，webkit再拿到html.css.js这些资源文件之后，就会开始解析，把html解析成dom树，把css解析成 style rules， 然后生成结合两者生成 render 树，再生成 Graphics Layer tree ，然后再进行光栅化产生纹理，最后合成纹理，展示在屏幕上。</p>
+<h4 id="生成dom树"><a href="#生成dom树" class="headerlink" title="生成dom树"></a>生成dom树</h4><p>在chrome 浏览器中，打开一个新的标签页，渲染进程就会创建一个新的webview，该webview是整个网页生成和渲染的入口，webview的构造函数会创建一个新的page对象，它和webview相对应，每个webview只存在一个page对象，每个page中有且仅有一个mainFrame，每个Frame 都有自己的一个 Document，在MainFrame中可以生成多个子Frame，就是我们平常见到的网页中的多Frame页面。Document 对应到的也就是DOM中的document对象，不过。此时，它是在webcore 中，而js 能 访问到的对象 是 在 js 引擎中，所以，这里涉及到对象注入的问题，后面再讲。</p>
+<p>在把页面的基础对象建立后，拿到了html文件，就是用html-parser 模块 开始 html 的解析，解析的过程是从上到下，如果在html页面中出现了 <script>标签，那么默认是需要等待<script> 标签中的 js 代码 解析执行完毕后，再往下解析 html的，而如果<script>标签使用了外链的方式，那么还需要等待网络去获取 js 脚本，正因为js 代码的执行会阻塞 主线程 解析 html ，所以一般推荐 是 把 <script> 标签都放在 页面的 最后，还有就是虽然js线程和渲染线程是互斥的，但它们是运行在不同的线程上。webkit为了提供性能，所以针对这个问题，做了优化，就是html文档的预解析，当遇到js脚本时，主线程会停止html的解析，但是会尝试去加载其它的图片，音视频资源文件等。当html解析完毕后，dom树也就构建完毕了。每个html标签都会被解析成HTMLelement，解析完成后，就可以在js线程访问到了。</p>
+<h4 id="生成css树"><a href="#生成css树" class="headerlink" title="生成css树"></a>生成css树</h4><p>css的文件的加载是异步的，css的解析和html的解析是并发进行的，其实render树的生成和dom 树的生成也是同时进行的，每解析一个html标签，就会挂载一个dom结点，同时，dom结点也会去和css tree 结合，生成 renderlayer Tree ，每个 renderlayer  结点 就是 一个css 的 盒子，当dom树构建完毕，render 树也就构建完毕了 。因为可能会出现js 代码中 访问 css 的情况，所以 webkit 会暂停 那些 试图 访问 某些没有被加载完成的 css 属性 的 js 代码。</p>
+<h4 id="重绘和回流"><a href="#重绘和回流" class="headerlink" title="重绘和回流"></a>重绘和回流</h4><p>回流也叫做重排，当节点的尺寸和位置发生改变的时候，就会触发回流，回流会计算页面的布局，并把受影响的部分重新绘制到屏幕。当页面第一次加载的时候，因为要构建布局，所以必然会触发回流。</p>
+<p>当渲染树中的一些元素需要更新一些不会改变元素不局的属性，比如只是影响元素的外观、风格、而不会影响布局的那些属性，这时候就只发生重绘。当然，页面首次加载也是要重绘一次的。</p>
+<h4 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h4><p>renderlayer Tree 会进一步构建成  Graphics Layer tree ，也就是图层， 然后进行光栅化，所谓光栅化就是要对 Graphics Layer 进行实际的绘制，这里会使用到底层的一些 图形库完成绘制，而且根据方式的不同，也分为使用CPU（软件渲染）和使用GPU（硬件渲染）两种，如果使用的是CPU 进行光栅化，那么在 chrome 使用的就是Skia 库，如果使用的是 GPU 进行光栅化，那么使用的就是opengl,光栅化后的 图像叫纹理，不过使用 CPU光栅化有个缺点，就是 cpu 光栅化后的纹理仍然需要上传到 gpu，纹理其实就是由一个个像素点组成的图像，只不过还没有显示到屏幕上，最后使用 gpu 进行纹理的合成，就可以显示在 屏幕上了。</p>
+<h4 id="Dom-binding"><a href="#Dom-binding" class="headerlink" title="Dom binding"></a>Dom binding</h4><p>再回到前面的问题，如果需要把webkit中实现的dom对象或html5对象暴露给javascript，让web开发者在javascript 中能够访问到，就需要在webkit 中为每个对象实现相应的js binding文件，以v8的引擎为例，需要为HTMLDocument  对象实现一个 V8HTMLDocument 的 对象，目的是转化 HTMLDocument 对象 为 v8:Object 。但是 DOM 的对象是很庞大的，再加上后续的html5 对象，如果给每一个cpp文件实现一个相应的转换类，工作量会很大，所以为了解决这个问题，webkit 编写了一套工具，去自动生成 binding 文件，这个过程需要利用到WebIDL ,它是一种特殊的定义语言，用来定义webcore的接口如何绑定到外部语言，这样，只要把webIDL 文件解析执行了，生成的cpp代码就会绑定到webcore的接口，然后再用v8去调用生成的代码，就可以实现v8访问webcore了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>webkit 实际工作的流程比我上面介绍的要复杂的多，很多流程我都是简述的，但是可以简单一点的说，就是在chrome 中，webkit的核心是webcore，它的工作就是把html和css渲染成图层，同时要将CSSOM 和 DOM 注入到 js 引擎中 ，当 js 引擎修改了 DOM 的结构时，重新 渲染图层 。大体就先介绍到这了。写这篇文章也是坑坑洼洼，因为webkit是cpp写的，而且chrome本身也是涉及到比较多的系统知识，例如icp，所以，很多去看很多前端写的文章并没什么价值，chrome架构的具体介绍，我会在下一篇文章中讲，未完待续...</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://ming1016.github.io/2017/10/11/deeply-analyse-webkit/" target="_blank" rel="noopener">https://ming1016.github.io/2017/10/11/deeply-analyse-webkit/</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1360028" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1360028</a></p>
+<p><a href="https://juejin.im/post/5e11cd225188253a73288212#heading-5" target="_blank" rel="noopener">https://juejin.im/post/5e11cd225188253a73288212#heading-5</a></p>
 
       
 
@@ -296,7 +360,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">webkit</a>
         		</li>
       		
 		</ul>
@@ -352,7 +416,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://cxtao666.github.io/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://cxtao666.github.io/2020/07/25/webkit%E5%88%9D%E6%8E%A2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -366,18 +430,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/26/Chromium%E5%88%9D%E6%8E%A2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          git的使用
+          Chromium初探
         
       </div>
     </a>
   
   
-    <a href="/2020/04/24/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">网络io模型</div>
+    <a href="/2020/07/22/%E8%A2%82%E4%BF%A1%E5%BC%80%E5%8F%91%E8%B8%A9%E5%9D%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">袂信开发踩坑</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -404,7 +468,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#项目目标"><span class="toc-number">1.</span> <span class="toc-text">项目目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nuxt介绍"><span class="toc-number">2.</span> <span class="toc-text">nuxt介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nuxt的使用"><span class="toc-number">3.</span> <span class="toc-text">nuxt的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#项目创建"><span class="toc-number">3.1.</span> <span class="toc-text">项目创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#nuxt的目录结构"><span class="toc-number">3.2.</span> <span class="toc-text">nuxt的目录结构</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#未完待续"><span class="toc-number">4.</span> <span class="toc-text">未完待续</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webkit-介绍"><span class="toc-number">2.</span> <span class="toc-text">webkit 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器的架构"><span class="toc-number">3.</span> <span class="toc-text">浏览器的架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器的组成"><span class="toc-number">3.1.</span> <span class="toc-text">浏览器的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程架构"><span class="toc-number">3.2.</span> <span class="toc-text">多进程架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebKit-架构"><span class="toc-number">4.</span> <span class="toc-text">WebKit 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webkit的工作流程"><span class="toc-number">5.</span> <span class="toc-text">webkit的工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成dom树"><span class="toc-number">5.1.</span> <span class="toc-text">生成dom树</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

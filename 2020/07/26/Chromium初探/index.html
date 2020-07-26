@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>nust.js初探 | 欢乐涌动</title>
+  <title>Chromium初探 | 欢乐涌动</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目目标把我个人博客的前端界面部分使用nuxt框架进行服务端渲染">
-<meta property="og:type" content="article">
-<meta property="og:title" content="nust.js初探">
-<meta property="og:url" content="http://yoursite.com/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Chromium初探">
+<meta property="og:url" content="http://yoursite.com/2020/07/26/Chromium%E5%88%9D%E6%8E%A2/index.html">
 <meta property="og:site_name" content="欢乐涌动">
-<meta property="og:description" content="项目目标把我个人博客的前端界面部分使用nuxt框架进行服务端渲染">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://image.myblog-tao.cn//1580344-20200131142344036-720942694.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//1580344-20200131142405828-1131757079.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//1580344-20200131142416797-305585681.png">
-<meta property="article:published_time" content="2020-04-23T16:28:37.000Z">
-<meta property="article:modified_time" content="2020-07-06T05:39:45.053Z">
+<meta property="article:published_time" content="2020-07-26T05:18:47.000Z">
+<meta property="article:modified_time" content="2020-07-26T05:18:47.675Z">
 <meta property="article:author" content="cxtao">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://image.myblog-tao.cn//1580344-20200131142344036-720942694.png">
   
   
     <link rel="icon" href="/assets/avatar.jpg">
@@ -176,20 +173,20 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-nust-js初探" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Chromium初探" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      nust.js初探
+      Chromium初探
     </h1>
   
 
         
-        <a href="/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/" class="archive-article-date">
-  	<time datetime="2020-04-23T16:28:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/07/26/Chromium%E5%88%9D%E6%8E%A2/" class="archive-article-date">
+  	<time datetime="2020-07-26T05:18:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-26</time>
 </a>
           <!-- 需要添加的位置 -->
          <!-- 开始添加字数统计-->
@@ -199,7 +196,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">594字</span>
+        <span class="post-count">0字</span>
       </span>
     </span>
 
@@ -208,7 +205,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -220,30 +217,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h4><p><strong>把我个人博客的前端界面部分使用nuxt框架进行服务端渲染</strong></p>
-<a id="more"></a>
-<h4 id="nuxt介绍"><a href="#nuxt介绍" class="headerlink" title="nuxt介绍"></a>nuxt介绍</h4><p><strong>nuxt可以把spa根据路由将单页面分割成多页面,比起vue的ssr渲染要更容易使用</strong></p>
-<h4 id="nuxt的使用"><a href="#nuxt的使用" class="headerlink" title="nuxt的使用"></a>nuxt的使用</h4><h5 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h5><p><code>npx create-nuxt-app &lt;项目名&gt;</code></p>
-<h5 id="nuxt的目录结构"><a href="#nuxt的目录结构" class="headerlink" title="nuxt的目录结构"></a>nuxt的目录结构</h5><p><img src="http://image.myblog-tao.cn//1580344-20200131142344036-720942694.png" alt=""></p>
-<p>其中layouts目录用于存放APP.vue,将其改名为default.vue,既可使用全局的界面配置,注意得用 <code>&lt;nuxt/&gt;</code>代替<code>&lt;router-view&gt;</code></p>
-<p>nuxt的界面嵌套<br><img src="http://image.myblog-tao.cn//1580344-20200131142405828-1131757079.png" alt=""></p>
-<p>pages目录用于存放vue项目的路由页面,nuxt默认情况下根据该目录,对路由进行配置,自动生成路由,所以无特殊情况是不需要自己手动配置路由的</p>
-<p><img src="http://image.myblog-tao.cn//1580344-20200131142416797-305585681.png" alt=""></p>
-<p>components目录用于将vue项目的组件移动到此目录</p>
-<p>plugins目录是插件的使用,例如如果项目使用了element.ui,则需要在该目录下配置,配置方法是在目录下新建elementui.js,并在文件下写入如下代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> ElementUi <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/index.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/display.css'</span></span><br><span class="line">Vue.use(ElementUi);</span><br></pre></td></tr></table></figure>
-
-<p>同时使用npm安装element-ui插件</p>
-<p>然后在nuxt.config.js文件中进行配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="string">'~/plugins/elementui'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>assets文件用于存放需要被webpack打包的图片和css文件</p>
-<p><strong>注意:在使用路径引入图片时需要在路径前面加上~</strong>,<strong>不然会报错</strong></p>
-<p>store文件夹用于存放vuex文件,在文件夹下新建index.js文件,导出方式大概如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">export const state &#x3D; () &#x3D;&gt;(&#123; </span><br><span class="line">  isLogin: false,</span><br><span class="line">  user:&quot;&quot;</span><br><span class="line">&#125;)  &#x2F;&#x2F;state必须是函数才行</span><br><span class="line"></span><br><span class="line">export const  mutations &#x3D; &#123;</span><br><span class="line">  userStatus(state, flag) &#123;</span><br><span class="line">    state.isLogin &#x3D; flag</span><br><span class="line">  &#125;,</span><br><span class="line">  setuser(state,flag)&#123;</span><br><span class="line">    state.user &#x3D; flag;</span><br><span class="line">    window.$cookies.set(&quot;user_session&quot;,&quot;haslogin&quot;,60 * 60 * 24)</span><br><span class="line">  &#125;,</span><br><span class="line">  getuser(state,flag)&#123;</span><br><span class="line"></span><br><span class="line">   var value &#x3D;  window.$cookies.get(&quot;user_session&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if(value &#x3D;&#x3D;&#x3D; &quot;haslogin&quot;)&#123;</span><br><span class="line"></span><br><span class="line">      state.isLogin &#x3D; true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> export const actions &#x3D; &#123;</span><br><span class="line">  userLogin(&#123;commit&#125;, flag) &#123;</span><br><span class="line">    commit(&quot;userStatus&quot;, flag)</span><br><span class="line">  &#125;,</span><br><span class="line">  setusername (&#123;commit&#125;,flag)&#123;</span><br><span class="line">    commit(&quot;setuser&quot;,flag)</span><br><span class="line">  &#125;,</span><br><span class="line">  getusername (&#123;commit&#125;,flag)&#123;</span><br><span class="line">    commit(&quot;getuser&quot;,flag)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> export const getters &#x3D; &#123;</span><br><span class="line">  isLogin: state &#x3D;&gt; state.isLogin,</span><br><span class="line">  user:state &#x3D;&gt;state.user</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h4><p>nuxt初探先到此,当然还有很多东西没有涉及,像动态路由,中间件的使用,还有vuex项目的使用等等,项目也还没改造完成,所以未完待续</p>
-
+        
       
 
       
@@ -291,17 +265,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -352,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://cxtao666.github.io/2020/04/24/nust-js%E5%88%9D%E6%8E%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://cxtao666.github.io/2020/07/26/Chromium%E5%88%9D%E6%8E%A2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -366,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git的使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/24/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">网络io模型</div>
+    <a href="/2020/07/25/webkit%E5%88%9D%E6%8E%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webkit初探</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -404,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#项目目标"><span class="toc-number">1.</span> <span class="toc-text">项目目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nuxt介绍"><span class="toc-number">2.</span> <span class="toc-text">nuxt介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nuxt的使用"><span class="toc-number">3.</span> <span class="toc-text">nuxt的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#项目创建"><span class="toc-number">3.1.</span> <span class="toc-text">项目创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#nuxt的目录结构"><span class="toc-number">3.2.</span> <span class="toc-text">nuxt的目录结构</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#未完待续"><span class="toc-number">4.</span> <span class="toc-text">未完待续</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
