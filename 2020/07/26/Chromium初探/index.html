@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://image.myblog-tao.cn//20140313220815921.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//20161125180122070.png">
 <meta property="article:published_time" content="2020-07-26T05:18:47.000Z">
-<meta property="article:modified_time" content="2020-07-26T10:55:55.886Z">
+<meta property="article:modified_time" content="2020-07-26T10:57:28.203Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="webkit">
 <meta name="twitter:card" content="summary">
@@ -221,6 +221,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我在上一篇文章，大体上把webkit的架构和工作流程给讲了，所以，这篇文章的主要内容是涉及chrome浏览器或者说是chromium的架构。在第一篇文章中，已经提到了chromium 使用的是多进程架构，并简单的介绍了主进程和渲染进程的关系，以及多进程架构的优缺点，还顺便提到了electron，这篇文章将更深入的分析这种浏览器架构，因为chrome和chromium 的浏览器架构其实是一样的，所以，本篇文章将介绍chromium。</p>
+
+<a id="more"></a>
 
 <h3 id="chromium架构分析"><a href="#chromium架构分析" class="headerlink" title="chromium架构分析"></a>chromium架构分析</h3><p>chromium包含5类进程，分别是browser进程，render进程，gpu进程, 网络进程 ，plugin进程。chromium的多进程模型有一个很重要的点，就是主进程(也就是browser进程) 是整个浏览器的控制中心，主进程负责合成 浏览器的额UI ，包括标题栏，地址栏，工具栏以及各个TAB 的 网页内容 (没错，网页的内容展示是在主进程完成的，渲染进程只是负责 使用 webkit 对 网页 进行图像的 渲染) , 而且还要负责 和 渲染 进程 的各种通信，因为 渲染进程是 处于沙箱模型中，所以，渲染进程 要使用 GPU 进程，要请求网络资源，都得通过 进程间的通信的形式，向 主进程 发送请求，同时，主进程还要负责页面用户事件的监听，把事件分发给不同的渲染进程。渲染进程的作用就是接受主进程的命令，把html 页面渲染成图层，执行js 脚本。而 网络进程 原先只是主进程的一个模块 ，后来才独立出一个进程出来，专门负责接受主进程发送来的指令，然后发送网络请求，拿到数据后，再通知主进程，再由主进程通知渲染进程，然后渲染进程去共享内存区中把文件读取解析。而gpu 进程的主要作用则是使用opengl 这种图像库调用gpu的功能，实现图像的绘制和图层的合并，往gpu输送图像。plugin进程则是实现一些浏览器的插件模块，因为它和浏览器的核心功能关系不大，所以本文就不做过多介绍了。</p>
 
@@ -527,11 +529,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,11 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>

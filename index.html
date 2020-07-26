@@ -429,27 +429,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我在上一篇文章，大体上把webkit的架构和工作流程给讲了，所以，这篇文章的主要内容是涉及chrome浏览器或者说是chromium的架构。在第一篇文章中，已经提到了chromium 使用的是多进程架构，并简单的介绍了主进程和渲染进程的关系，以及多进程架构的优缺点，还顺便提到了electron，这篇文章将更深入的分析这种浏览器架构，因为chrome和chromium 的浏览器架构其实是一样的，所以，本篇文章将介绍chromium。</p>
-
-<h3 id="chromium架构分析"><a href="#chromium架构分析" class="headerlink" title="chromium架构分析"></a>chromium架构分析</h3><p>chromium包含5类进程，分别是browser进程，render进程，gpu进程, 网络进程 ，plugin进程。chromium的多进程模型有一个很重要的点，就是主进程(也就是browser进程) 是整个浏览器的控制中心，主进程负责合成 浏览器的额UI ，包括标题栏，地址栏，工具栏以及各个TAB 的 网页内容 (没错，网页的内容展示是在主进程完成的，渲染进程只是负责 使用 webkit 对 网页 进行图像的 渲染) , 而且还要负责 和 渲染 进程 的各种通信，因为 渲染进程是 处于沙箱模型中，所以，渲染进程 要使用 GPU 进程，要请求网络资源，都得通过 进程间的通信的形式，向 主进程 发送请求，同时，主进程还要负责页面用户事件的监听，把事件分发给不同的渲染进程。渲染进程的作用就是接受主进程的命令，把html 页面渲染成图层，执行js 脚本。而 网络进程 原先只是主进程的一个模块 ，后来才独立出一个进程出来，专门负责接受主进程发送来的指令，然后发送网络请求，拿到数据后，再通知主进程，再由主进程通知渲染进程，然后渲染进程去共享内存区中把文件读取解析。而gpu 进程的主要作用则是使用opengl 这种图像库调用gpu的功能，实现图像的绘制和图层的合并，往gpu输送图像。plugin进程则是实现一些浏览器的插件模块，因为它和浏览器的核心功能关系不大，所以本文就不做过多介绍了。</p>
-
-<p>接下来，讲下gpu进程，主进程，render进程 三者之间的关系。GPU进程启动之后，Browser进程会与它建立两个IPC通道。一个IPC通道用来传输普通的IPC消息，另一个IPC通道专门用来执行GPU操作，称为GPU通道。类似地，Render进程需要通过GPU渲染网页的时候，也会通过之前与Browser进程建立的IPC通道请求Browser进程为它创建一个GPU通道，并且将该GPU通道封装在一个WebGraphicsContext3DCommandBufferImpl对象，以后就可以通过该WebGraphicsContext3DCommandBufferImpl对象向GPU进程请求执行GPU操作了。Render进程之所以要通过Browser进程间接地与GPU进程建立GPU通道，是因为GPU进程是由Browser进程启动的，Render进程对它一无所知。之后，主进程和渲染进程就都可以通过gpu进程，实现硬件加速了。当渲染进程把图层绘制好后，就需要由Browser端将UI显示在屏幕上，这个过程会涉及到OpenGL上下文之间的资源传递和同步问题，其中资源传递问题通过Mailbox机制解决，同步问题通过Sync Point机制解决。</p>
-
-<p>对于主进程和渲染进程的网络和视图渲染都有了个基本的了解之后，再来说下资源存储的问题。浏览器为web开发者提供了cookie,storage,的存储功能，也提供了http 强缓存，协商缓存的功能。因为渲染进程处于沙箱模型，所以是没有能力访问磁盘的，所以存储的功能也是主进程负责的。关于chromium的缓存机制，从上到下分为三层，第一层是页面缓存，第二层是内存缓存，第三层是磁盘缓存。浏览器的主进程提供第三层的磁盘缓存，也就是当使用到了cookie 和 localStorage ，http 缓存 时 ，主进程会保存资源文件到磁盘上，以便浏览器下次启动时使用。而第二层缓存和第一层缓存都是由webkit提供的，页面缓存是指当前页面切换到新的页面时，webkit会把这个旧的页面保存起来，这样可以使用浏览器的后退功能返回页面时，就直接把刚才保存的页面读取出来就行，而不需要重新去网络请求页面，内存缓存也是由 webkit 提供的 ，webkit 会 提供在 当前 页面的 内存保存功能，但是当把窗口关闭，也就是渲染进程被杀死了，保存的数据就丢失了，例如像sessionStorage 这种 使用的就是内存缓存。如果这些缓存都不存在的时候，浏览器的主进程才会通知网络进程发送请求去网络服务器上下载资源。</p>
-<h3 id="chromium的通信"><a href="#chromium的通信" class="headerlink" title="chromium的通信"></a>chromium的通信</h3><p>因为涉及到了多进程，而且多进程的架构分明，所以，在chromium中使用了大量的进程间通信和线程间通信。先上张图。</p>
-
-<p><img src="http://image.myblog-tao.cn//b2780375c189bd5fc245e3b3f32084d.jpg" alt=""></p>
-<p>再上张官方的图</p>
-<p><img src="http://image.myblog-tao.cn//20140313220815921.png" alt=""></p>
-<p>因为两张图是不同时期的chromium，所以会存在细微的区别，包括现在，现在网络请求也已经从主进程中独立出来。从图中就能看出来，为了实现进程间的通信，chromium底层使用了tcp 的本地套接字这种方式来实现进程间的双向通信，主进程每建立一个渲染进程，就会产生一个RenderProcessHost的对象，同时在渲染进程中会存在一个RenderProcess对象用于和RenderProcessHost对象相对应。两个对象之间再通过IO线程使用本地套接字的方式建立起TCP连接，进行实现进程间的通信，同时在渲染进程中，还会再令开一个线程用于调用webkit进行解析html文件，因为在进程内部又使用了多线程，所以需要解决多线程的通信问题，这里引入 message Loop ，每一个线程中包含有一个MessageLoop,MessageLoop实际上可以看作是任务的队列，线程就是不停的从messageloop 中选择任务投入运行。一个任务运行完毕后，再从队列上选择下一个任务投入运行，直到队列上没有任务为止，然后线程处于休眠状态，等待新的任务加入。还有一个问题，就是如何实现线程间的通信，很明显是往message loop 中加入执行任务。所以当线程a想要线程b执行任务时，线程a把想要执行的任务封装成Callback对象,再通过 全局对象获取 线程 b的 message loop，把callback 对象 添加到线程b的message loop即可，因为线程之间是共享堆区，所以对象是共享的。</p>
-
-<h3 id="Android-chromium"><a href="#Android-chromium" class="headerlink" title="Android chromium"></a>Android chromium</h3><p>Android 应用使用共享内存的方式，实现chromium的程序段在多个安卓进程之间共享，也就是启动了安卓应用后，安卓应用就带有chromium的功能了，chromium的功能被封装webview控件中。Android WebView使用了单进程架构的Chromium来加载和渲染网页，因此它的Browser端、Render端和GPU端都不是以进程的形式存在的，而是以线程的形式存在。其中，Browser端实现在App的UI线程中，Render端实现在一个独立的线程中，而GPU端实现在App的Render Thread中。</p>
-<p><img src="http://image.myblog-tao.cn//20161125180122070.png" alt=""></p>
-<p>和chromuim 一样，安卓 chromium 还是 Render端  会 调用 webkit 实现 页面的渲染 ( 调用webkit 需要用到多个线程 )，而 Browser端 负责数据的请求 ，接受用户的事件 和 最后 的 页面展示，gpu 端 使用opengl 或者 skia 实现 界面的 绘制。 有个小的区别是，为了提高性能，Render端也可以直接 调用 GPU 端 (在app的 render 线程中) 进行界面的绘制和显示，而不必一定要Browser来 调用 GPU 端实现 界面的 显示。在安卓中，chromium 也没有了复杂的进程间通信，而是Render端和Browser端会将gpu命令提交给DeferredGpuCommandService 服务，再由它 提交给 App 的 Render Thread 执行。</p>
-<h3 id="Electron-架构"><a href="#Electron-架构" class="headerlink" title="Electron 架构"></a>Electron 架构</h3><p>最后，再来说下electron，electron和chromium的架构很像，但不同的地方是electron的渲染进程不是处于沙盒模型之后的，渲染进程可以选择开启node.js 的功能，当然这会占用更多的内存，此外，还提供了很多 native 的 api 。还有就是因为 webkit 中使用 的 js 事件队列 中和 node 中基于 libuv 的事件队列 会冲突，所以electron 是 把 node 集成到了 chromium 中，使用 了 webkit 的事件队列 ，并保留了 node 中 原生模块 , 再使用v8 引擎去解析 js 代码。electron 的渲染进程也不需要像 chromiim 一样离屏渲染。以上几点，算是electron 和 chromium的 显著区别了。当然，对于electron 这种开发模式，一方面提高了开发效率，而且实现了跨端，但是另一方面应用的性能也会降低，但是，硬件性能的提升，会让这种应用性能的降低不那么容易感知出来，而且。像vscode 这种应用也是 electron开发出来的 ，这也证明了这种开发模式的可行性 。所以，前端一统天下指日可待。</p>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>做了2篇文章关于webkit 这个方向的了，大部分我都是在自己力所能及得范围进行介绍了，因为涉及到的知识偏cpp 和 操作系统 ，而且，参考的文章也不多，不过，还好，我还是找到了几个大佬的博客可以进行参考，我的这2篇文章也是看了他们的博客，然后总结，于是我也把参考链接贴在下面了。完结，撒花！</p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>老罗的博客 <a href="https://blog.csdn.net/Luoshengyang" target="_blank" rel="noopener">https://blog.csdn.net/Luoshengyang</a></p>
-<p><a href="https://blog.csdn.net/yl02520" target="_blank" rel="noopener">https://blog.csdn.net/yl02520</a></p>
-
+        
       
 
       
@@ -1324,11 +1304,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,11 +1316,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springBoot</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
