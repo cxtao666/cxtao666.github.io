@@ -18,11 +18,12 @@
 <meta property="og:image" content="http://image.myblog-tao.cn//16f758bbcd32f249.webp">
 <meta property="og:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B76.PNG">
 <meta property="og:image" content="http://image.myblog-tao.cn//16f758bb346202ed.webp">
+<meta property="og:image" content="http://image.myblog-tao.cn//-electron.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//49.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//74.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//yw9qb5brpt.png">
 <meta property="article:published_time" content="2020-07-25T05:58:10.000Z">
-<meta property="article:modified_time" content="2020-07-26T05:31:40.881Z">
+<meta property="article:modified_time" content="2020-07-26T12:13:09.270Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="webkit">
 <meta name="twitter:card" content="summary">
@@ -223,7 +224,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近想要把旧的知识点整理起来，为面试做准备，于是打算从头开始，把css和html重新复习一遍，记一些css的面试题。不过，这个过程挺无聊的，虽然css能做很漂亮的界面，但是css要记的知识点太多了，而且很多也没有什么逻辑性可言，最关键的是我css和html很多都忘了...因为有很多UI库可以使用。当然了肯定是框架工具要会用，原理也要懂，这样才能又能造轮子，又能写外包...，所以，我就又开了篇博客，用来记录下webkit的探索之旅。先说明下，我这篇文章中的观点，也是从网上的博客中东拼西凑，再加入些自己的观点和理解些的，毕竟我也没去看webkit 的源码，所以可能在文章会出现偏差，也请读者自行鉴别。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近想要把旧的知识点整理起来，为面试做准备，于是打算从头开始，把css和html重新复习一遍，记一些css的面试题。不过，这个过程挺无聊的，虽然css能做很漂亮的界面，但是css要记的知识点太多了，而且很多也没有什么逻辑性可言，最关键的是我css和html很多都忘了...因为有很多UI库可以使用。当然了肯定是框架工具要会用，原理也要懂，这样才能又能造轮子，又能写外包...，所以，我就又开了篇博客，用来记录下webkit的探索之旅。先说明下，我这篇文章中的观点，也是从网上的博客中东拼西凑，再加入些自己的观点和理解写的，毕竟我也没去看webkit 的源码，所以可能在文章会出现偏差，也请读者自行鉴别。</p>
 
 <a id="more"></a>
 
@@ -257,7 +258,7 @@
 
 <p>还有一个有意思的点，webkit 之所以开源，是因为 它的 前身是 KDE的一个开源项目 KHTML(html引擎),苹果在khtml的基础上开发出了WebCore，同时在kjs(ktml配套的js引擎)的基础上开发了JavaScriptCore，并开源出来。然后google 又在 webkit 的基础上保留了WebCore，加入了v8 ，开发出了Blink引擎，所以Blink和webkit其实都可以看成是 KHTML 的衍生物，在保留了KHTML 的基础上进行了修改，所以，本文也不做具体区分了，把 chrome 的内核也称为 webkit。</p>
 
-<h3 id="浏览器的架构"><a href="#浏览器的架构" class="headerlink" title="浏览器的架构"></a>浏览器的架构</h3><h4 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h4><p>在上面有了个对webkit的简单理解之后，再来说下浏览器的架构，因为浏览器内核是在浏览器中被使用到的，如果在安卓和ios上，则是使用了webview组件去调用浏览器内核。因为浏览器有很多种，这里，就以开发中最常使用到chrome浏览器器为例。</p>
+<h3 id="浏览器的架构"><a href="#浏览器的架构" class="headerlink" title="浏览器的架构"></a>浏览器的架构</h3><h4 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h4><p>在上面有了个对webkit的简单理解之后，再来说下浏览器的架构，因为浏览器内核是在浏览器中被使用到的，如果在安卓和ios上，则是使用了webview组件去调用浏览器内核。因为浏览器有很多种，这里，就以开发中最常使用到chrome浏览器为例。</p>
 
 <p>首先，浏览器大致可以分为5个部分，分别是</p>
 
@@ -281,10 +282,9 @@
 
 <p>这里，盗张慕课网的图，嘻嘻</p>
 
-<p>![](<a href="http://image.myblog-tao.cn//2-3" target="_blank" rel="noopener">http://image.myblog-tao.cn//2-3</a> 主进程和渲染进程.mp4_20200520_220716.560.png)</p>
+<p><img src="http://image.myblog-tao.cn//-electron.png" alt=""></p>
 <p>再来说下，这种多进程架构的优缺点吧，通过给每一个tab窗口开一个进程，这样最大的好处，就是进程的内存空间是独立的，页面之间是不会相互影响的，所以就算浏览器中的一个页面出现了崩溃的问题，对于其它打开的浏览器页面并不会造成影响，而且，因为内存空间相互隔离的原因，所以不同的tab页面之间是不能访问(除非使用IPC的方式)，所以保证了安全性。当然，这样做的方式也是有缺点的，那就是多进程会加大内存的开销，这点在window 系统上会体现得更加得明显，虽然,chrome 也进行了很多的优化。</p>
-<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看<a src="https://cxtao666.github.io/2020/07/26/Chromium%E5%88%9D%E6%8E%A2/">我的第二篇博客</a>。</p>
-
+<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看</p>
 <h3 id="WebKit-架构"><a href="#WebKit-架构" class="headerlink" title="WebKit 架构"></a>WebKit 架构</h3><p>简单扯完了浏览器的架构，再回来说webkit。因为浏览器的渲染进程会调用到浏览器的渲染引擎来完成页面的渲染，所以 chrome 的 渲染进程 会 利用webkit 来 实现 html,css 的解析 和 js 代码的执行。</p>
 <p><strong>下面是webkit的架构图</strong></p>
 <p><img src="http://image.myblog-tao.cn//49.png" alt=""></p>
@@ -303,7 +303,7 @@
 <p>当渲染树中的一些元素需要更新一些不会改变元素不局的属性，比如只是影响元素的外观、风格、而不会影响布局的那些属性，这时候就只发生重绘。当然，页面首次加载也是要重绘一次的。</p>
 <h4 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h4><p>renderlayer Tree 会进一步构建成  Graphics Layer tree ，也就是图层， 然后进行光栅化，所谓光栅化就是要对 Graphics Layer 进行实际的绘制，这里会使用到底层的一些 图形库完成绘制，而且根据方式的不同，也分为使用CPU（软件渲染）和使用GPU（硬件渲染）两种，如果使用的是CPU 进行光栅化，那么在 chrome 使用的就是Skia 库，如果使用的是 GPU 进行光栅化，那么使用的就是opengl,光栅化后的 图像叫纹理，不过使用 CPU光栅化有个缺点，就是 cpu 光栅化后的纹理仍然需要上传到 gpu，纹理其实就是由一个个像素点组成的图像，只不过还没有显示到屏幕上，最后使用 gpu 进行纹理的合成，就可以显示在 屏幕上了。</p>
 <h4 id="Dom-binding"><a href="#Dom-binding" class="headerlink" title="Dom binding"></a>Dom binding</h4><p>再回到前面的问题，如果需要把webkit中实现的dom对象或html5对象暴露给javascript，让web开发者在javascript 中能够访问到，就需要在webkit 中为每个对象实现相应的js binding文件，以v8的引擎为例，需要为HTMLDocument  对象实现一个 V8HTMLDocument 的 对象，目的是转化 HTMLDocument 对象 为 v8:Object 。但是 DOM 的对象是很庞大的，再加上后续的html5 对象，如果给每一个cpp文件实现一个相应的转换类，工作量会很大，所以为了解决这个问题，webkit 编写了一套工具，去自动生成 binding 文件，这个过程需要利用到WebIDL ,它是一种特殊的定义语言，用来定义webcore的接口如何绑定到外部语言，这样，只要把webIDL 文件解析执行了，生成的cpp代码就会绑定到webcore的接口，然后再用v8去调用生成的代码，就可以实现v8访问webcore了。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>webkit 实际工作的流程比我上面介绍的要复杂的多，很多流程我都是简述的，但是可以简单一点的说，就是在chrome 中，webkit的核心是webcore，它的工作就是把html和css渲染成图层，同时要将CSSOM 和 DOM 注入到 js 引擎中 ，当 js 引擎修改了 DOM 的结构时，重新 渲染图层 。大体就先介绍到这了。写这篇文章也是坑坑洼洼，因为webkit是cpp写的，而且chrome本身也是涉及到比较多的系统知识，例如icp，所以，很多去看很多前端写的文章并没什么价值，chrome架构的具体介绍，我会在下一篇文章中讲，未完待续…</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>webkit 实际工作的流程比我上面介绍的要复杂的多，很多流程我都是简述的，但是可以简单一点的说，就是在chrome 中，webkit的核心是webcore，它的工作就是把html和css渲染成图层，同时要将CSSOM 和 DOM 注入到 js 引擎中 ，当 js 引擎修改了 DOM 的结构时，重新 渲染图层 。大体就先介绍到这了。写这篇文章也是坑坑洼洼，因为webkit是cpp写的，而且chrome本身也是涉及到比较多的系统知识，例如icp，所以，去看很多前端类文章并没什么价值，chrome架构的具体介绍，我会在下一篇文章中讲，未完待续…</p>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://ming1016.github.io/2017/10/11/deeply-analyse-webkit/" target="_blank" rel="noopener">https://ming1016.github.io/2017/10/11/deeply-analyse-webkit/</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1360028" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1360028</a></p>
 <p><a href="https://juejin.im/post/5e11cd225188253a73288212#heading-5" target="_blank" rel="noopener">https://juejin.im/post/5e11cd225188253a73288212#heading-5</a></p>
@@ -594,11 +594,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webkit</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color2">webkit</a>
               </li>
              
               <li class="article-tag-list-item">
