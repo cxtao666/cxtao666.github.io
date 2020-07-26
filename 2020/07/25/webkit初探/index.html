@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://image.myblog-tao.cn//74.png">
 <meta property="og:image" content="http://image.myblog-tao.cn//yw9qb5brpt.png">
 <meta property="article:published_time" content="2020-07-25T05:58:10.000Z">
-<meta property="article:modified_time" content="2020-07-26T12:13:09.270Z">
+<meta property="article:modified_time" content="2020-07-26T12:17:11.667Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="webkit">
 <meta name="twitter:card" content="summary">
@@ -284,7 +284,7 @@
 
 <p><img src="http://image.myblog-tao.cn//-electron.png" alt=""></p>
 <p>再来说下，这种多进程架构的优缺点吧，通过给每一个tab窗口开一个进程，这样最大的好处，就是进程的内存空间是独立的，页面之间是不会相互影响的，所以就算浏览器中的一个页面出现了崩溃的问题，对于其它打开的浏览器页面并不会造成影响，而且，因为内存空间相互隔离的原因，所以不同的tab页面之间是不能访问(除非使用IPC的方式)，所以保证了安全性。当然，这样做的方式也是有缺点的，那就是多进程会加大内存的开销，这点在window 系统上会体现得更加得明显，虽然,chrome 也进行了很多的优化。</p>
-<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看</p>
+<p>因为这篇文章的主体是要介绍webkit，所以这里还是简单的引出就好，更多详细的Chromium架构模型可以看我的第二篇文章。</p>
 <h3 id="WebKit-架构"><a href="#WebKit-架构" class="headerlink" title="WebKit 架构"></a>WebKit 架构</h3><p>简单扯完了浏览器的架构，再回来说webkit。因为浏览器的渲染进程会调用到浏览器的渲染引擎来完成页面的渲染，所以 chrome 的 渲染进程 会 利用webkit 来 实现 html,css 的解析 和 js 代码的执行。</p>
 <p><strong>下面是webkit的架构图</strong></p>
 <p><img src="http://image.myblog-tao.cn//49.png" alt=""></p>
@@ -594,19 +594,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webkit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +611,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
