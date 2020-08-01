@@ -54,7 +54,7 @@
 		
 
 		<nav>
-			总文章数 12
+			总文章数 13
 		</nav>
 		<nav class="header-menu">
 			<ul>
@@ -384,6 +384,106 @@
 
 
   
+    <article id="post-css布局总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/02/css%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93/">css布局总结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/02/css%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-08-01T16:10:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
+</a>
+          <!-- 需要添加的位置 -->
+         <!-- 开始添加字数统计-->
+         
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3.5k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">15分</span>
+      </span>
+    </span>
+</div>
+          
+          <!-- 添加完成 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="css布局"><a href="#css布局" class="headerlink" title="css布局"></a>css布局</h3><h4 id="css布局是css体系的重中之重"><a href="#css布局是css体系的重中之重" class="headerlink" title="css布局是css体系的重中之重"></a>css布局是css体系的重中之重</h4><p>所谓的布局就是确定页面的大概结构，布局就是layout，就是轮廓的意思，就是你的页面分多少块，每一块在什么地方，怎么把它撑起来，就是布局需要做的事。</p>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/02/css%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-编译原理漫谈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -443,49 +543,7 @@
 <p>它将源语言直接作为源程序输入，解释执行解释一句后就提交计算机执行一句，并不形成目标程序</p>
 </blockquote>
 <p>这一段也是从百科上面摘的，简单的说，就会如果使用解释执行的话，那么就不会产生目标程序，而是直接通过解释器执行命令。</p>
-<h4 id="区别和联系"><a href="#区别和联系" class="headerlink" title="区别和联系"></a>区别和联系</h4><p>一开始，我对这2个概念，也不是很清楚，再加上解释型语言和编译型语言的区分和运行时概念的引入，我就更加的混乱了。后来，我也是在接触了更多的技术和在看了R大的文章(他的文章我会在文末的附录中列出)，才有了比较清楚的认识。</p>
-<p>我混乱的原因是因为因为一开始就引入了过多的概念，<strong>其实编译，解释和编程语言之间并没有太大的联系</strong>。如果想要的话，不同的编程语言都可以实现编译和解析执行。还有就是运行时，运行时和编程语言是有关系的，但是和编译和运行，也没有实质性的联系，这个也在文章后面在分析。</p>
-<p>在把编程语言和运行时的概念暂时抛开后，简单的来说，编译和解释执行的最大区别就是有没有生成目标语言的代码片段，<strong>解释执行是解释程序在解释代码后直接进行计算得到结果</strong>，从逻辑上来说，机器语言实际上也是解释执行的，计算机硬件就是机器语言的解释器。而<strong>编译是由编译程序把源程序的代码片段经过编译过程后产生目标语言的代码片段</strong>。而如果要说它们之间的关联性的话，那么，就是无论是编译还是解释，它们的最终目的都是为了能够让计算机执行程序。</p>
-<h3 id="编译的具体过程"><a href="#编译的具体过程" class="headerlink" title="编译的具体过程"></a>编译的具体过程</h3><p>再聊完了编译和解释的区别之后，接下来，谈谈编译的过程，一个编程语言的编译过程分为前端编译和后端编译。<br><strong>前端编译主要目的是代码的错误检查和生成AST语法树。<br>后端编译的主要目的是根据AST语法树生成目标代码。</strong><br>具体过程是比较复杂的，所以我就简述每个过程的主要作用就行了，而且，编译也并不是需要把每一个步骤都完，很多开发中编译过程其实只涉及到前端编译或者编译中的几个步骤。</p>
-<p><img src="http://image.myblog-tao.cn//14eaa0c24dfe977286801086851e8c5.png" alt="" title="流程图"></p>
-<h4 id="前端编译"><a href="#前端编译" class="headerlink" title="前端编译"></a>前端编译</h4><ul>
-<li><p>词法解析</p>
-</li>
-<li><p>语法解析</p>
-</li>
-<li><p>语义解析</p>
-</li>
-<li><p>生成AST树</p>
-</li>
-</ul>
-<h5 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h5><p>词法分析的主要任务是读入源程序的输入字符，然后生成并输出一个词法单元序列。词法解析主要使用了正则表达式进行字符串匹配</p>
-<h5 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h5><p>语法解析使用词法分析产生的词法单元进行分析，进而构造出语法树。</p>
-<h5 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h5><p>在语法分析构造出的语法树的基础上，再根据语法树和符号表中的信息来检查源程序是否和语言定义的语义一致，如果不符合，就会进行代码的报错。语义分析完毕后，就会生成AST语法树。</p>
-<h4 id="后端编译"><a href="#后端编译" class="headerlink" title="后端编译"></a>后端编译</h4><ul>
-<li>生成中间代码</li>
-<li>代码优化</li>
-<li>生成目标代码</li>
-</ul>
-<h5 id="生成中间代码"><a href="#生成中间代码" class="headerlink" title="生成中间代码"></a>生成中间代码</h5><p>生成中间代码的过程，是在AST语法树生成之后，对AST语法树进行扫描，然后产生的一种介于目标代码和输入代码的中间代码，例如Java中的字节码</p>
-<h5 id="代码合并-优化"><a href="#代码合并-优化" class="headerlink" title="代码合并,优化"></a>代码合并,优化</h5><p>对中间代码进行优化，以便生成更好的目标代码。</p>
-<h5 id="生成目标代码"><a href="#生成目标代码" class="headerlink" title="生成目标代码"></a>生成目标代码</h5><p>将优化后的中间代码映射为目标语言的代码。</p>
-<h3 id="编译原理和编程语言"><a href="#编译原理和编程语言" class="headerlink" title="编译原理和编程语言"></a>编译原理和编程语言</h3><p>再对编译原理和作用和流程有了个大体了解后，就可以来聊下编译原理和编程语言之间的关系了。我一开始的话，会把一个编程语言看做是编译语言和解释型语言，例如把C/C++ 看成是编译型的语言，把Java看成是解释型的语言，因为Java是先编译出字节码，再由VM对字节码进行解释执行，把js也看成是解释性语言。而且，我那时觉得解释型语言和编译型语言还有一个大的区别，就是进程的不同，当然这准确来讲是运行时的区别，下文再说。</p>
-<p>直到后来，我接触了<strong>JIT</strong>和<strong>AOT</strong>,才知道，原理没有那么简单，JIT就是即时编译了，以Java为例，JVM在执行字节码的时候，会将部分字节码直接编程成平台相关的代码（因为不同的cpu架构能够识别的机器码是不同的），例如在x86平台上，就会编译出x86相关的机器码，然后再将机器码进行运行，这是个时候，因为JVM 是C/C++ 写的，所以利用指针的特性，是可以在程序运行的时候，将机器码加载到程序中运行起来的。当然JVM除了JIT之外，还保留了解释执行的能力，JVM是基于栈式的，安卓里面的DVM则是基于寄存器的，这里可以打个比方，那就是<strong>使用解释执行的字节码对于JVM或者DVM来说，就如同机器码对于CPU来说是一样的，都是直接解释执行了</strong>，只不过解释逻辑CPU是基于硬件实现的，JVM是C++实现的(这里以HotSpot为例)。</p>
-<p>再来聊下JIT在JS中的实现，其实我一开始觉得JS是解释型语言其实也没错，因为JS引入JIT技术也是到了V8引擎才开始的，V8一开始是直接JIT的，就是在生成AST树之后，连字节码都没有产生，就直接JIT产生native代码了，所以可以看成是编译型语言了，后来才加入了字节码和解释执行，现在的模型基本上和JVM是一样的，只不过Java编译成字节码这个过程是分开的，而js编译成字节码这个过程是接下来的步骤是连在一起的。</p>
-<p>说完了JIT，再来讲下AOT，AOT是完全编译的意思，最常见的AOT的编程语言就是C/C++了，都是先编译成成汇编，再编译成机器码。但其实像JAVA这种高级的语言，也是可以实现AOT的，例如在安卓的ART中，应用在安装的过程，就会将.dex（就是字节码文件）进行二进制的编译，编译成arm平台的代码，当然，因为运行时的原因，JAVA还是没办法像c那样直接二进制跑在操作系统上，需要ART的支持。</p>
-<p>所以，总的来说，每一种编程语言想要被计算机执行，都是可以采取编译型或者解析执行的，当然最后，肯定是由CPU进行执行，正因为如此，我在开头说了，编译，解释和编程语言之间关系不大，编译和解释执行对于编程语言来说，都是一种具体实现的方案而已。</p>
-<h3 id="编程语言和运行时"><a href="#编程语言和运行时" class="headerlink" title="编程语言和运行时"></a>编程语言和运行时</h3><p>编程语言和运行时这个方面是很大的，而且和编译原理关系也不是很大，但是编程语言和运行时是关系很大的，这也决定了不同的编程语言的主要运用场景不一样。所以，因为这篇文章的主题是漫谈，所以，也来聊聊吧。</p>
-<p>C语言的运行时可以是操作系统，也可以直接就是硬件，当C语言跑在内核中的时候，就需要直接和硬件打交道了，利用内联汇编和指针去操控硬件。C++ 的运行时是操作系统，它利用C库函数去调用一些多线程，多进程，io操作，网络编程的功能，同时，利用自身的指针，去进行程序的内存管理。Java的运行时是jre，利用jvm实现内存管理，多线程和io的功能也需要由运行时提供，或者使用jni调用动态链接库。Java的运行时一般由c++/c 这类能直接跑在操作系统上的编程语言编写。所以，即使Java代码使用aot编译，但是因为Java代码本身并没有提供内存管理的能力，所以仍然需要虚拟机对其内存进行管理，而io，多线程这类需要和操作系统交互的功能也得依赖虚拟机进行调用。Js其实和Java差不多，但它比java更弱，语言本身连多线程,io都没有提供相应的语法，所以，它的io操作必须要依赖于宿主，可以是node.js，也可以是浏览器，由宿主提供和操作系统沟通的功能，gc则由js引擎进行管理。而在node.js中 宿主环境提供原生功能的操作其实就类似于jni，不过，因为js本身没有io和多线程的语言模块，所以这些功能c/c++实现封装的程度要比Java高很多。Java还可能只在涉及系统调用时使用c库,所以Java还可以有自己的网络库,例如netty，但js是没办法的。</p>
-<p>再回到前面提到的进程问题，其实js的线程就是v8的线程，从操作系统的角度看，它们是同一个的，java 的 进程就是JVM 所在的进程，当然Java 的线程是操作系统级别的， 所以我那时觉得编译型语言和解释型语言(就是需要带个虚拟机或者引擎)的最大区别，就是解释性语言执行的时候并没有创建新的进程，还是使用它们的虚拟机的进程，而像C/C++ 启动.exe文件的时候就创建了一个新的进程，现在我觉得我这种观点是不对的，在学了fork和exec之后，进程的创建是父进程通过fork产生的，然后将可执行文件（二进制文件）exec 到进程中，然后换核不换壳，这种操作其实和加载class差不多，如果非要说区别，那也只能说Java，js这类语言和C/c++ 相比 多了一层虚拟机。</p>
-<h3 id="编译原理的应用"><a href="#编译原理的应用" class="headerlink" title="编译原理的应用"></a>编译原理的应用</h3><p>其实编译原理涉及的范围很广，它本质上是一种基于字符串的算法。编程语言方面现在还出现了LLVM这种可以将多种编程语言进行编译的编译器，通过它能将多种编程语言编译成字节码，还有就是像ktolin这种可以编译成多种编程语言的语言，学个ktolin，Java,js,python,c都有了，哈哈。</p>
-<p>除了编程语言需要使用到编译原理，在开发中也都有涉及，这里就说下前端的了，例如Vue中template模板编译成render函数,es6通过bable编译成es3，less编译成css ,再例如uni-app和 mpvue之类的框架，也是使用了编译原理。所以呀，要造轮子，编译原理是肯定要学的。</p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>推荐几本编译原理的书和大佬的博客</p>
-<p>龙书  &lt;&lt;编译原理&gt;&gt;</p>
-<p>虎书  &lt;&lt;现代编译原理:C语言描述&gt;&gt;</p>
-<p>鲸书  &lt;&lt;高级编译器设计与实现&gt;&gt;</p>
-<p>送上大佬的知乎首页</p>
-<p><a href="https://www.zhihu.com/people/rednaxelafx/answers" target="_blank" rel="noopener">https://www.zhihu.com/people/rednaxelafx/answers</a></p>
-
+        
       
 
       
@@ -1141,106 +1199,6 @@
 
 
   
-    <article id="post-网络io模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/24/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/">网络io模型</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/24/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-04-23T16:18:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
-</a>
-          <!-- 需要添加的位置 -->
-         <!-- 开始添加字数统计-->
-         
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.8k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">6分</span>
-      </span>
-    </span>
-</div>
-          
-          <!-- 添加完成 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="操作系统基本概念"><a href="#操作系统基本概念" class="headerlink" title="操作系统基本概念"></a>操作系统基本概念</h3><p>首先来来说下操作系统，嗯，<strong>操作系统是计算机硬件的管理软件，是对计算机硬件的抽象</strong>，操作系统将应用程序分为用户态和内核态，例如驱动程序就位于内核态，而我们写的一般程序都是用户态，包括web服务器这些，应用程序无法直接操控硬件，只能通过系统调用，通过操作系统驱动io硬件，通过操作系统管理进程。</p>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1381,6 +1339,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
