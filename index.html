@@ -693,12 +693,10 @@
 <p>刚开始是使用github当图床，原因也很简单，我有github账号，配置的话也比较简单，在github上新建个仓库，然后本地客户端去连接github，我用的是PicGo，经过一番配置后就能把图片上传到github了，但也有问题，问题就是图片放在github的仓库，然后使用http 去打开图片的时候，在电脑上会出现图片打不开的情况，原因是DNS污染，得修改本地机器上的<strong>hosts文件</strong> 才能正常访问图片.这就很烦了，如果别人的电脑上没有修改hosts文件，那么访问我的博客时，博客的图片不是打不开了吗，于是只能令找出路. </p>
 <p>接下来，我又看到了个新的平台，就是七牛云了，不过七牛云的配置就繁琐很多了，又要注册账号，又要实名认证，最终还要绑定域名，因为我之前已经给我的服务器配置了域名，所以我就开了个二级域名，用来解析七牛云的chame，具体原理，就是链接会先使用我的域名解析到七牛云的域名，再由<strong>chame</strong> 解析到七牛云的服务器上，详细的配置过程就不赘述了，做好了这些，我就可以先在本地，把图片用PicGo上传到七牛云，然后再使用外链的方式把图片放到博客里了.</p>
 <h3 id="页面刷新处理"><a href="#页面刷新处理" class="headerlink" title="页面刷新处理"></a>页面刷新处理</h3><p>我的博客的前端页面是使用vue开发的单页面，所以当我刷新页面的时候，就会出现问题了，首先说明下vue的路由模式有2种hash和history，我之前使用的是history,history需要后端nginx的支持，hash则对后端完全没有影响。遇到的问题就是如果我从文章的列表页进入文章的详细页，然后网页刷新，这个时候网页数据无法重新刷新出来，我这里使用的vue 路由传参是使用params,而不是query，为了让刷新后的路由参数不丢失(参数就是文章的id，然后vue组件在<strong>created</strong> 阶段通过params获取参数，然后去后端请求数据)，我在router.js中对路由配置进行了处理。</p>
-<pre><code>1  
-2  
-3  
-4  
-5  
-6  
+<pre><code>&#123;// 这是router.js 中对article这个组件的路由配置    path:&#39;/article/:id&#39;,    name:&#39;article&#39;,    component:resolve =&gt; require([&#39;./pages/article.vue&#39;],resolve)&#125;
+
+
+created() &#123;    let id = this.$route.params.id // 获取参数id          this.getData(id) // 根据id，去后台获取数据  &#125;
 </code></pre>
         
           <a class="article-more-a" href="/2020/07/21/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/#more">more >></a>
@@ -1101,11 +1099,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">

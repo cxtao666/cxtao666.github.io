@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://cxtao666.github.io">
   <title>ejs的简单使用 | 欢乐涌动</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用 介绍变量变量嵌套于html模板之中 1   2    |  &lt;%&#x3D; title %&gt;  &#x2F;&#x2F;在koa中可以配合ctx的ren">
+  <meta name="description" content="前言ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用 介绍变量变量嵌套于html模板之中 &lt;%&#x3D; title %&gt;  &#x2F;&#x2F;在koa中可以配合ctx的render方法进行渲染  在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ejs的简单使用">
 <meta property="og:url" content="https://cxtao666.github.io/2020/03/24/ejs%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="欢乐涌动">
-<meta property="og:description" content="前言ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用 介绍变量变量嵌套于html模板之中 1   2    |  &lt;%&#x3D; title %&gt;  &#x2F;&#x2F;在koa中可以配合ctx的ren">
+<meta property="og:description" content="前言ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用 介绍变量变量嵌套于html模板之中 &lt;%&#x3D; title %&gt;  &#x2F;&#x2F;在koa中可以配合ctx的render方法进行渲染  在">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-24T07:51:54.000Z">
-<meta property="article:modified_time" content="2026-07-12T10:25:28.196Z">
+<meta property="article:modified_time" content="2026-07-12T10:47:07.123Z">
 <meta property="article:author" content="cxtao">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
@@ -187,84 +187,19 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用</strong></p>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量嵌套于html模板之中</p>
-<pre><code>1  
-2  
+<pre><code>&lt;%= title %&gt;  //在koa中可以配合ctx的render方法进行渲染
 </code></pre>
-<p>| </p>
-<pre><code>&lt;%= title %&gt;  //在koa中可以配合ctx的render方法进行渲染  
-  
-</code></pre>
-<p>—|—  </p>
 <p>在模板中定义的变量都需要render函数中对应名称的变量进行渲染,如果想要定义了不渲染,可以使用</p>
-<pre><code>1  
+<pre><code>&lt;%= locals.name %&gt; //这样没有传也不会报错
 </code></pre>
-<p>| </p>
-<pre><code>&lt;%= locals.name %&gt; //这样没有传也不会报错  
-  
+<h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><pre><code>&lt;div&gt; &lt;%  if (isMe) &#123; %&gt;&lt;% &#125; else &#123; %&gt;&lt;% &#125; %&gt;&lt;/div&gt;
 </code></pre>
-<p>—|—  </p>
-<h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><pre><code>1  
-2  
-3  
-4  
-5  
-6  
-7  
+<h4 id="组价"><a href="#组价" class="headerlink" title="组价"></a>组价</h4><pre><code>// 将变量传给引用的ejs文件&lt;%- include(&#39;/文件名.ejs&#39;,&#123;    isMe&#125;)%&gt;
 </code></pre>
-<p>| </p>
-<pre><code>&lt;div&gt;   
-  
-&lt;%  if (isMe) &#123; %&gt;  
-&lt;% &#125; else &#123; %&gt;  
-&lt;% &#125; %&gt;  
-  
-&lt;/div&gt;  
-  
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><pre><code>&lt;ul&gt;&lt;% List.forEach((item)=&gt;&#123; %&gt;    &lt;li&gt;&lt;%= item.name %&gt;&lt;/li&gt; &lt;% &#125;) %&gt;&lt;/ul&gt;
 </code></pre>
-<p>—|—  </p>
-<h4 id="组价"><a href="#组价" class="headerlink" title="组价"></a>组价</h4><pre><code>1  
-2  
-3  
-4  
+<h4 id="执行js脚本"><a href="#执行js脚本" class="headerlink" title="执行js脚本"></a>执行js脚本</h4><pre><code>&lt;script&gt;    console.log(&#39;100)&lt;/script&gt;
 </code></pre>
-<p>| </p>
-<pre><code>// 将变量传给引用的ejs文件  
-&lt;%- include(&#39;/文件名.ejs&#39;,&#123;  
-    isMe  
-&#125;)%&gt;  
-  
-</code></pre>
-<p>—|—  </p>
-<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><pre><code>1  
-2  
-3  
-4  
-5  
-6  
-7  
-</code></pre>
-<p>| </p>
-<pre><code>&lt;ul&gt;  
-  
-&lt;% List.forEach((item)=&gt;&#123; %&gt;  
-    &lt;li&gt;&lt;%= item.name %&gt;&lt;/li&gt;   
-&lt;% &#125;) %&gt;  
-  
-&lt;/ul&gt;  
-  
-</code></pre>
-<p>—|—  </p>
-<h4 id="执行js脚本"><a href="#执行js脚本" class="headerlink" title="执行js脚本"></a>执行js脚本</h4><pre><code>1  
-2  
-3  
-</code></pre>
-<p>| </p>
-<pre><code>&lt;script&gt;  
-    console.log(&#39;100)  
-&lt;/script&gt;  
-  
-</code></pre>
-<p>—|—  </p>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>ejs初探就到这里了</p>
 
       
@@ -511,11 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
