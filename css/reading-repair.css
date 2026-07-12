@@ -1,0 +1,97 @@
+/* Local repairs layered on top of Yilia without changing the theme structure. */
+.article-inner {
+  max-width: 860px;
+}
+
+.article-entry {
+  color: #30343b;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.article-entry p,
+.article-entry ul,
+.article-entry ol,
+.article-entry blockquote {
+  margin-bottom: 1.2em;
+}
+
+.article-entry h1,
+.article-entry h2,
+.article-entry h3,
+.article-entry h4 {
+  color: #1f2933;
+  line-height: 1.35;
+  margin: 2.1em 0 0.75em;
+}
+
+.article-entry a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.article-entry img {
+  display: block;
+  height: auto;
+  margin: 1.5em auto;
+  max-width: 100%;
+}
+
+.article-entry p.image-unavailable {
+  background: #f6f7f8;
+  border-left: 3px solid #9aa5b1;
+  color: #66717f;
+  font-size: 0.9em;
+  margin: 1.4em 0;
+  padding: 0.8em 1em;
+}
+
+.article-entry p.image-unavailable img {
+  display: none;
+}
+
+.article-entry pre,
+.article-entry figure.highlight {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.article-entry code {
+  overflow-wrap: anywhere;
+}
+
+.article-entry table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.article-more-a {
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .article-inner {
+    padding: 1.6rem 1.15rem;
+  }
+
+  .article-entry {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .article-entry h1,
+  .article-entry h2,
+  .article-entry h3,
+  .article-entry h4 {
+    margin-top: 1.8em;
+  }
+
+  .article-entry pre,
+  .article-entry figure.highlight {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

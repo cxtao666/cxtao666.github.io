@@ -6,35 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://cxtao666.github.io">
-  <title>网络io模型 | 欢乐涌动</title>
+  <title>css布局总结 | Xiantao Cai</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="操作系统基本概念首先来来说下操作系统，嗯，操作系统是计算机硬件的管理软件，是对计算机硬件的抽象 ，操作系统将应用程序分为用户态和内核态，例如驱动程序就位于内核态，而我们写的一般程序都是用户态，包括web服务器这些，应用程序无法直接操控硬件，只能通过系统调用，通过操作系统驱动io硬件，通过操作系统管理进程。 接下来说下文件的概念，在操作系统中，文件是对i&#x2F;o的一种抽象，文件 大体包括三类">
+  <meta name="description" content="css布局css布局是css体系的重中之重">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络io模型">
-<meta property="og:url" content="https://cxtao666.github.io/2020/04/23/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/index.html">
-<meta property="og:site_name" content="欢乐涌动">
-<meta property="og:description" content="操作系统基本概念首先来来说下操作系统，嗯，操作系统是计算机硬件的管理软件，是对计算机硬件的抽象 ，操作系统将应用程序分为用户态和内核态，例如驱动程序就位于内核态，而我们写的一般程序都是用户态，包括web服务器这些，应用程序无法直接操控硬件，只能通过系统调用，通过操作系统驱动io硬件，通过操作系统管理进程。 接下来说下文件的概念，在操作系统中，文件是对i&#x2F;o的一种抽象，文件 大体包括三类">
+<meta property="og:title" content="css布局总结">
+<meta property="og:url" content="https://cxtao666.github.io/2020/08/02/css%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Xiantao Cai">
+<meta property="og:description" content="css布局css布局是css体系的重中之重">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://image.myblog-tao.cn//234504_kQl5_1403215.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//20150405_VKYH.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//20152818_DXcj.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//20164149_LD8E.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//20175459_gtgw.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//21091434_DsZb.png">
-<meta property="og:image" content="http://image.myblog-tao.cn//849589-20170709225535712-2041092305.png">
-<meta property="article:published_time" content="2020-04-23T08:18:46.000Z">
-<meta property="article:modified_time" content="2026-07-12T10:47:07.122Z">
-<meta property="article:author" content="cxtao">
-<meta property="article:tag" content="linux">
+<meta property="og:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B7.PNG">
+<meta property="og:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B71.PNG">
+<meta property="og:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B72.PNG">
+<meta property="og:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B73.PNG">
+<meta property="og:image" content="http://image.myblog-tao.cn//16cfefeb90d9ec0b.webp">
+<meta property="article:published_time" content="2020-08-01T16:10:17.000Z">
+<meta property="article:modified_time" content="2026-07-12T13:09:57.520Z">
+<meta property="article:author" content="Xiantao Cai">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://image.myblog-tao.cn//234504_kQl5_1403215.png">
+<meta name="twitter:image" content="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B7.PNG">
   
-    <link rel="alternative" href="/atom.xml" title="欢乐涌动" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Xiantao Cai" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/avatar.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  <link rel="stylesheet" href="/css/reading-repair.css">
+  <script src="/js/archive-image-repair.js"></script>
   <style type="text/css">
   
     #container.show {
@@ -59,8 +59,10 @@
 			<img src="/assets/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">Xiantao Cai</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">Engineer building tools, systems, and freedom.</p>
 		
 
 		<nav class="header-menu">
@@ -81,8 +83,6 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
             
     			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
@@ -94,16 +94,10 @@
 				
 					<a class="github" target="_blank" href="https://github.com/cxtao666" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="twitter" target="_blank" href="https://x.com/caixiantao" title="twitter"><i class="icon-twitter"></i></a>
+		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1246784448" title="qq"><i class="icon-qq"></i></a>
-		        
-					<a class="mail" target="_blank" href="mailto:1246784448@qq.com" title="mail"><i class="icon-mail"></i></a>
-		        
-			</div>
-			
-			<div style="position:absolute; bottom:120px; left:auto; width:85%">
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=32"></iframe>
 			</div>
 		</nav>
 	</header>		
@@ -123,8 +117,10 @@
 				<img src="/assets/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">Xiantao Cai</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Engineer building tools, systems, and freedom.<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -141,11 +137,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/cxtao666" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="twitter" target="_blank" href="https://x.com/caixiantao" title="twitter"><i class="icon-twitter"></i></a>
+			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="qq" target="_blank" href="/1246784448" title="qq"><i class="icon-qq"></i></a>
-			        
-						<a class="mail" target="_blank" href="mailto:1246784448@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -173,96 +167,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-网络io模型" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-css布局总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      网络io模型
+      css布局总结
     </h1>
   
 
         
-        <a href="/2020/04/23/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-04-23T08:18:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+        <a href="/2020/08/02/css%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-08-01T16:10:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="操作系统基本概念"><a href="#操作系统基本概念" class="headerlink" title="操作系统基本概念"></a>操作系统基本概念</h3><p>首先来来说下操作系统，嗯，<strong>操作系统是计算机硬件的管理软件，是对计算机硬件的抽象</strong> ，操作系统将应用程序分为用户态和内核态，例如驱动程序就位于内核态，而我们写的一般程序都是用户态，包括web服务器这些，应用程序无法直接操控硬件，只能通过系统调用，通过操作系统驱动io硬件，通过操作系统管理进程。</p>
-<p>接下来说下文件的概念，在操作系统中，文件是对i&#x2F;o的一种抽象，<strong>文件</strong> 大体包括三类</p>
-<p><strong>普通的文件</strong> ：包括二进制文件和文本文件</p>
-<p><strong>目录</strong> ：就是普通文件的一组链表</p>
-<p><strong>套接字文件</strong> :用来与另一个进程进行跨网络通信的文件</p>
-<p>套接字文件就是通常说的socket，还有值得注意的是无论打开什么文件，内核都会返回给应用程序一个<strong>文件描述符</strong> 。当关闭文件后，内核释放资源，同时回收文件描述符。</p>
-<h4 id="进程的内存模型"><a href="#进程的内存模型" class="headerlink" title="进程的内存模型"></a>进程的内存模型</h4><p>每个进程都有独立的上下文，它拥有完整的虚拟内存空间。</p>
-<p>CPU执行进程，总是在不断对进程的切换中，这种叫时分复用，而且时间很快，从而让人有一种进程并行的感觉，即单个cpu在一个时刻只能做一件事</p>
-<p><img src="http://image.myblog-tao.cn//234504_kQl5_1403215.png"></p>
-<h3 id="I-O流程"><a href="#I-O流程" class="headerlink" title="I&#x2F;O流程"></a>I&#x2F;O流程</h3><p>说下应用程序读文件的大致流程（写文件也差不多），当一个进程想要向磁盘或者接受网络数据时，它会先发起系统调用（可以通过异常等方式），然后将程序控制权交给操作系统，</p>
-<p>操作系统向指定的文件发起读的操作，返回给程序一个文件操作符，然后接下来就是比较有意思的地方了，因为文件读出来是需要时间的，文件读出来后会存到内核的缓冲区中（DMA），然后中断提醒CPU，CPU再由内核缓冲区读取到用户进程中，在这个过程中，这段时间里，用户进程可以有阻塞，非阻塞，同步，异步各种状态</p>
-<h3 id="linux的I-O模型"><a href="#linux的I-O模型" class="headerlink" title="linux的I&#x2F;O模型"></a>linux的I&#x2F;O模型</h3><p>网络IO的本质是socket的读取，socket在linux系统被抽象为流，IO可以理解为对流的操作。对于一次IO访问（以read举例），数据会先被拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。所以说，当一个read操作发生时，它会经历两个阶段：</p>
-<p>第一阶段：等待数据准备 (Waiting for the data to be ready)。 第二阶段：将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)。 </p>
-<p>对于socket流而言，</p>
-<p>第一步：通常涉及等待网络上的数据分组到达，然后被复制到内核的某个缓冲区。 第二步：把数据从内核缓冲区复制到应用进程缓冲区。 </p>
-<h4 id="linux的五种网络i-o模型"><a href="#linux的五种网络i-o模型" class="headerlink" title="linux的五种网络i&#x2F;o模型"></a>linux的五种网络i&#x2F;o模型</h4><p>同步的概念就是在数据复制到用户进程的这段时间内，用户进程是不干活</p>
-<p>异步是在这段时间内，用户进程会继续执行它后续的工作</p>
-<p>先在同步异步的基础上进行简单的分类</p>
-<p><strong>同步模型（synchronous IO）</strong></p>
+        <h3 id="css布局"><a href="#css布局" class="headerlink" title="css布局"></a>css布局</h3><h4 id="css布局是css体系的重中之重"><a href="#css布局是css体系的重中之重" class="headerlink" title="css布局是css体系的重中之重"></a>css布局是css体系的重中之重</h4><p>所谓的布局就是确定页面的大概结构，布局就是layout，就是轮廓的意思，就是你的页面分多少块，每一块在什么地方，怎么把它撑起来，就是布局需要做的事。</p>
+<h4 id="早期以table为主"><a href="#早期以table为主" class="headerlink" title="早期以table为主"></a>早期以table为主</h4><p>最早期的时候，网页都是使用table标签来搞定的，因为table本身就带有格子，本身就能实现各格子中的文本的垂直居中，所以，只要在每个格子里面填入对应的内容，就形成了最终的网页</p>
+<h4 id="后来以技巧性布局为主"><a href="#后来以技巧性布局为主" class="headerlink" title="后来以技巧性布局为主"></a>后来以技巧性布局为主</h4><p>包括在盒子模型的基础上，使用浮动，定位，进行行内盒和块级盒的转换，像例如浮动，最先是为了产生一种文字环绕图片的效果，后来被使用到了布局，常见的多列布局，都是使用浮动进行的。</p>
+<h4 id="现在有flexbox-grid"><a href="#现在有flexbox-grid" class="headerlink" title="现在有flexbox&#x2F;grid"></a>现在有flexbox&#x2F;grid</h4><p>在css3的时候，终于引入了flex布局和grid布局，flex布局用于一维，而grid用于二维，它们都是css推出的真正用于布局的标准，当然缺点是兼容性不好，对于老版本的IE，无法进行兼容。</p>
+<h4 id="响应式布局是必备的知识"><a href="#响应式布局是必备的知识" class="headerlink" title="响应式布局是必备的知识"></a>响应式布局是必备的知识</h4><p>响应式布局是随着移动端开发的盛行，而产生别的一种布局，使用响应式布局，通过媒体查询的方式，可以实现一套网页，在移动端和pc端都能得到适配。移动端的布局具体将在下一篇文章中讲。</p>
+<h3 id="常用的布局方法"><a href="#常用的布局方法" class="headerlink" title="常用的布局方法"></a>常用的布局方法</h3><h4 id="table-表格布局"><a href="#table-表格布局" class="headerlink" title="table 表格布局"></a>table 表格布局</h4><p><img src="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B7.PNG"></p>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;    &lt;style&gt;        .left&#123;            width: 200px;            background-color: red;            text-align: center;        &#125;        .right&#123;            width: 200px;            background-color: yellow;            text-align: center;        &#125;        tr&#123;            height: 400px;        &#125;    &lt;/style&gt;        &lt;style&gt;     .table&#123;            margin-top: 20px;            display: table;            width: 800px;            height: 200px;        &#125;        .table-row&#123;            display: table-row;        &#125;        .table-cell&#123;            display: table-cell;            vertical-align: middle;        &#125;        &lt;/style&gt;&lt;/head&gt;&lt;body&gt;    &lt;table&gt;        &lt;tr&gt;            &lt;td class=&quot;left&quot;&gt;左边&lt;/td&gt;            &lt;td class=&quot;right&quot;&gt;右边&lt;/td&gt;        &lt;/tr&gt;    &lt;/table&gt;    &lt;div class=&quot;table&quot;&gt;        &lt;div class=&quot;table-row&quot;&gt;            &lt;div class=&quot;left table-cell&quot;&gt;左&lt;/div&gt;            &lt;div class=&quot;right table-cell&quot;&gt;右&lt;/div&gt;        &lt;/div&gt;    &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+<p>现在 table 布局已经使用得比较少了，如果要使用得话，一般是通过设置display是table的相关属性进行设置。</p>
+<h4 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h4><p><img src="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B71.PNG"></p>
+<p>盒子模型是css中一个很基础，也很重要的内容，上面的图片是在chrome浏览器中的默认盒子模型,这种盒子模型叫做<code>content-box</code>，css也提供了属性去修改盒子模型。</p>
+<p>css提供了一个名叫<code>box-sizing</code>的属性用于修改css的盒子模型，值分别为<code>border-box</code>和<code>content-box</code>2种，两者的区别在于<code>border-box</code>设定<code>width</code>时，<code>width</code>会包含<code>padding</code>和<code>border</code>，而设定为<code>content-box</code>时，设定<code>width</code>，<code>width</code>并不包含<code>padding</code>，<code>height</code>也是同理，具体如下面的代码例子所示</p>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;    &lt;style&gt;        .box&#123;            box-sizing:border-box;            width: 400px;            height: 400px;            padding: 200px;            overflow: hidden;        &#125;        .box div &#123;            width: 200px;            height: 200px;            padding: 200px;                &#125;    &lt;/style&gt;&lt;/head&gt;&lt;body&gt;    &lt;div class=&quot;box&quot;&gt;        &lt;div &gt;Hello word&lt;/div&gt;    &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+<p><img src="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B72.PNG"></p>
+<p><img src="http://image.myblog-tao.cn//%E6%8D%95%E8%8E%B73.PNG"></p>
+<p>chrome默认的盒子模型就是<code>content-box</code>，而且子标签也不会默认继承父标签的盒子模型。</p>
+<p><strong>注意，设置background-color 的时候是会包括 padding 在内的</strong></p>
+<h4 id="display"><a href="#display" class="headerlink" title="display"></a>display</h4><p>用于确定元素的显示类型</p>
 <ul>
-<li>阻塞IO（bloking IO）</li>
-<li>非阻塞IO（non-blocking IO）</li>
-<li>多路复用IO（multiplexing IO）</li>
-<li>信号驱动式IO（signal-driven IO）</li>
+<li>block 块级元素</li>
+<li>inline 行内元素</li>
+<li>inline-block 行内块级元素，下文会给出注意点</li>
 </ul>
-<p><strong>异步IO（asynchronous IO）</strong></p>
-<p>接下来进行分类的介绍</p>
-<h5 id="阻塞I-O"><a href="#阻塞I-O" class="headerlink" title="阻塞I&#x2F;O"></a>阻塞I&#x2F;O</h5><p>阻塞i&#x2F;o就是整个过程用户进程都是阻塞，它发起系统调用后就被挂起了，直到数据被搬运到缓冲区中，然后数据从缓冲区读进用户进程，它才被唤醒，真个过程它都处于挂起状态（什么都不干）</p>
-<p><img src="http://image.myblog-tao.cn//20150405_VKYH.png"></p>
-<h5 id="非阻塞i-o"><a href="#非阻塞i-o" class="headerlink" title="非阻塞i&#x2F;o"></a>非阻塞i&#x2F;o</h5><p>用户进程发起系统调用后，它没有被挂起，而是继续执行，但它要不断轮询看数据是否运到内核了，数据到了内核后，用户进程将数据从内核读取到用户进程</p>
-<p><img src="http://image.myblog-tao.cn//20152818_DXcj.png"></p>
-<h5 id="多路复用I-O"><a href="#多路复用I-O" class="headerlink" title="多路复用I&#x2F;O"></a>多路复用I&#x2F;O</h5><p>多路复用I&#x2F;O比较复杂，它整个过程也是阻塞的，但不同的是它可以阻塞多个i&#x2F;o，同时阻塞多个socket连接，有epoll,，poll,select等，epoll是linux最高效的，<strong>多路复用的特点是通过一种机制一个进程能同时等待多个IO文件描述符，内核监视这些文件描述符（套接字描述符），其中的任意一个进入读就绪状态，select， poll，epoll函数就可以返回。</strong></p>
-<p>select,poll,epoll都是内核状态的函数调用</p>
-<p><strong>用户进程发起系统调用后，处于挂起状态，同时监听多个socket连接，只要有其中有一个数据到达内核，用户进程就被唤醒工作，然后将数据从内核读取到用户进程，其实就是由epoll，select同时监听多个io对象，当io对象发生变化的时候，就通知用户进程读写数据，进行操作</strong></p>
-<p>即多个io对象复用一个进程，这样可以很充分的利用阻塞的这段时间</p>
-<p>IO多路复用是同步阻塞模式</p>
-<p><img src="http://image.myblog-tao.cn//20164149_LD8E.png"></p>
-<h5 id="异步驱动I-O"><a href="#异步驱动I-O" class="headerlink" title="异步驱动I&#x2F;O"></a>异步驱动I&#x2F;O</h5><p><img src="http://image.myblog-tao.cn//20175459_gtgw.png"></p>
-<p>这个理论上是最好的，但在linux系统中很难实现</p>
-<h5 id="信号驱动i-o"><a href="#信号驱动i-o" class="headerlink" title="信号驱动i&#x2F;o"></a>信号驱动i&#x2F;o</h5><p><img src="http://image.myblog-tao.cn//21091434_DsZb.png"></p>
-<p>这个很少使用到</p>
-<h4 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h4><p>异步io在linux中很难实现，但也有一种模拟异步io的方法即多线程和同步阻塞io进行模拟，设置一个主线程，用其它线程进行同步io操作，当io完成时通知主线程去读取进程中的数据，进行后续操作，因为是同一个进程，所以可以共享内存资源。进而实现类似异步io的效果，在linux中有libev,libeio这样的异步io实现库，而在windows，则使用了iocp,可以说异步io的核心就是在子线程上执行io操作，在执行完毕后通知调用者提取相关数据。只不过linux是用户层的线程池，而iocp是内核的线程池。</p>
-<h4 id="Node模型"><a href="#Node模型" class="headerlink" title="Node模型"></a>Node模型</h4><p>首先说下常见的模型要么是单进程多线程，要么是多进程单线程，node是属于后者</p>
-<p><img src="http://image.myblog-tao.cn//849589-20170709225535712-2041092305.png"></p>
-<p>node中最重的就是包含了libuv这个，node的所有io操作都是通过它来实现的，libuv实现了异步IO，libuv中包含一个事件队列（可以理解为就是主线程），如果是网络io，它会使用epoll这种io多路复用的方式(在linux中)对io进行处理，而对于磁盘的io操作，它会采用多线程+阻塞io的方式进行io操作，它读写完数据后就将数据返回给js引擎。从而实现io操作。</p>
-<p>最后提一点epoll这种io多路复用模型使用的很广，redis,nginx,都不同程度使用了它，它2者也可以归为多进程单线程这种模型。</p>
+<h4 id="inline-block-布局"><a href="#inline-block-布局" class="headerlink" title="inline-block 布局"></a>inline-block 布局</h4><p>是把block 块级元素 横向打成 inline 内联元素的方案，让它们并列起来</p>
+<p>像文本一样排block元素，没有清除浮动的问题，但是会有以下的问题需要注意:</p>
+<ul>
+<li>vertical-align 属性会影响到 inline-block 元素，需要把它的值设置为 top 。</li>
+<li>需要设置每一列的宽度</li>
+<li>如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙</li>
+</ul>
+<h4 id="position"><a href="#position" class="headerlink" title="position"></a>position</h4><p>确定元素的位置</p>
+<ul>
+<li>static</li>
+<li>relative</li>
+</ul>
+<p>偏移是相对于元素本身的，还会保留原来的文档位置</p>
+<ul>
+<li>absolute</li>
+</ul>
+<p>脱离文档流，偏移是相对于最近的position值是非static的父元素，如果都找不到，那么就是相对于body</p>
+<ul>
+<li>fixed</li>
+</ul>
+<p>脱离文档流，偏移是相对于屏幕，或者说是可视区域是固定的</p>
+<ul>
+<li>z-index</li>
+</ul>
+<p>用于解决层级问题，定位为relative,absolute,fixed的元素可以设置 z-index,z-index值越大，层级越高，就能覆盖其它的元素。</p>
+<h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4><ul>
+<li>元素“浮动”</li>
+<li>脱离文档流</li>
+<li>但不脱离文本流</li>
+</ul>
+<h5 id="对自身的影响"><a href="#对自身的影响" class="headerlink" title="对自身的影响:"></a>对自身的影响:</h5><ul>
+<li>形成”块”(BFC)</li>
+<li>位置尽量靠上</li>
+<li>位置尽量靠左(右)</li>
+</ul>
+<h5 id="对兄弟的影响"><a href="#对兄弟的影响" class="headerlink" title="对兄弟的影响"></a>对兄弟的影响</h5><ul>
+<li>上面贴非float元素</li>
+<li>旁边贴float元素</li>
+<li>不影响其它块级元素的位置</li>
+<li>影响其它块级元素的内部文本</li>
+</ul>
+<h5 id="对父级元素的影响"><a href="#对父级元素的影响" class="headerlink" title="对父级元素的影响"></a>对父级元素的影响</h5><ul>
+<li>从布局上”消失”</li>
+<li>高度塌陷</li>
+</ul>
+<h5 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h5><p>虽然浮动能实现布局，且在浏览器上有着很好的兼容性，但是元素浮动会导致父元素高度塌陷，兄弟元素内部文本显示异常，兄弟元素内文本排列异常等问题，所以需要清除浮动。<br>清除浮动的常见方法有以下几种</p>
+<ul>
+<li>使用伪元素，设置清除浮动</li>
+<li>新增标签，并在标签中进行清除浮动</li>
+<li>将父元素设置为BFC</li>
+</ul>
+<h4 id="float浮动-margin"><a href="#float浮动-margin" class="headerlink" title="float浮动 + margin"></a>float浮动 + margin</h4><p>非常经典的布局方式，不管是采用两列的还是三列的，都可以使用这种布局方式</p>
+<h4 id="flexbox-布局"><a href="#flexbox-布局" class="headerlink" title="flexbox 布局"></a>flexbox 布局</h4><p>css 规范第一次提供用于布局的方式，float最初的目的是为了实现 图文混排，inline-block 的设计初衷 也不是用于布局，但是它的缺点是存在兼容性的问题，在移动端布局中使用的比较广泛，像小程序,react native, uni-app 这些框架默认也是使用 flex 进行布局开发。</p>
+<ul>
+<li>弹性盒子</li>
+<li>盒子本来就是并列的</li>
+<li>指定宽度即可</li>
+</ul>
+<h4 id="grid-布局"><a href="#grid-布局" class="headerlink" title="grid 布局"></a>grid 布局</h4><p>grid用于二维布局，因为本身内容比较多，所以我接下来会单独写一篇文章用来讲 grid 布局</p>
+<h3 id="常见的布局效果"><a href="#常见的布局效果" class="headerlink" title="常见的布局效果"></a>常见的布局效果</h3><h4 id="实现居中"><a href="#实现居中" class="headerlink" title="实现居中"></a>实现居中</h4><h5 id="实现水平居中"><a href="#实现水平居中" class="headerlink" title="实现水平居中"></a>实现水平居中</h5><pre><code>text-align:center;
+
+
+justify-content:center;
+
+
+margin : 0 auto ;
+
+
+position:absolute;left:50%;transform:translate(0%,-50%);
+
+
+width:600px;position:absolute;left:50%;margin-left:-300px;
+</code></pre>
+<h5 id="实现垂直居中"><a href="#实现垂直居中" class="headerlink" title="实现垂直居中"></a>实现垂直居中</h5><pre><code>vertical-align: middle;
+
+
+position:absolute;top:50%;transform:translate(-50%,0%);
+
+
+height:600px;position:absolute;top:50%;margin-top:-300px;
+
+
+margin:auto 0;
+
+
+align-items:center;
+</code></pre>
+<h4 id="两列布局"><a href="#两列布局" class="headerlink" title="两列布局"></a>两列布局</h4><p>左边进行浮动，并给标签定宽高，右边设置成块级元素，加margin-left，这样可以实现左边定宽高，右边自适应的效果。</p>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;两列布局&lt;/title&gt;    &lt;style&gt;        *&#123;            margin: 0px;            padding: 0px;        &#125;        .content&#123;            width: 100%;                  &#125;        .left&#123;            float: left;            width: 200px;            height: 200px;            background-color: blue;        &#125;        .right&#123;            display: block;            margin-left: 250px;            height: 300px;                  width: 100%;            background-color: bisque;        &#125;        .left p &#123;            text-align: center;        &#125;        .right p&#123;            text-align: center;        &#125;    &lt;/style&gt;&lt;/head&gt;&lt;body&gt;        &lt;div class=&quot;content&quot;&gt;        &lt;div class=&quot;left&quot;&gt;            &lt;h4&gt;left&lt;/h4&gt;            &lt;p&gt;left&lt;/p&gt;        &lt;/div&gt;        &lt;div class=&quot;right&quot;&gt;            &lt;h4&gt;right&lt;/h4&gt;            &lt;p&gt;right&lt;/p&gt;        &lt;/div&gt;    &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+<p>也可以把margin 换成 overflow:hidden ，触发 right 块的BFC 属性，同时把 width 进行修改</p>
+<pre><code>.right&#123;           display: inline-block;           overflow: hidden;           height: 300px;              width :70% ;           background-color: bisque;       &#125;
+</code></pre>
+<h4 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a>三列布局</h4><p>左边的元素左浮动，右边的元素右浮动，然后把中间的元素写在最后，给中间的元素一个 margin-left和 margin-right</p>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;三列布局&lt;/title&gt;    &lt;style&gt;        *&#123;            margin: 0px;            padding: 0px;        &#125;        .content&#123;           width: 100%;        &#125;               .left&#123;            float: left;            width: 200px;            height: 200px;            background-color: blue;        &#125;        .right&#123;            float: right;            width: 200px;            height: 200px;            background-color: burlywood;        &#125;        .middle&#123;            margin-left: 230px;            margin-right: 230px;            height: 400px;            background-color: chocolate;        &#125;        p&#123;            text-align: center;        &#125;    &lt;/style&gt;&lt;/head&gt;&lt;body&gt;    &lt;div class=&quot;content&quot;&gt;        &lt;div class=&quot;left&quot;&gt;&lt;h4&gt;left&lt;/h4&gt;&lt;p&gt;left&lt;/p&gt;&lt;/div&gt;        &lt;div class=&quot;right&quot;&gt;&lt;h4&gt;right&lt;/h4&gt;&lt;p&gt;right&lt;/p&gt;&lt;/div&gt;        &lt;div class=&quot;middle&quot;&gt;&lt;h4&gt;middle&lt;/h4&gt;&lt;p&gt;middle&lt;/p&gt; &lt;/div&gt;    &lt;/div&gt;    &lt;/body&gt;&lt;/html&gt;
+</code></pre>
+<h4 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h4><p>主要是使用了浮动和margin使用负值的方式实现的三栏布局，给容器设置左右padding，给middle区域（中间的自适应区域）先设置浮动，这样可以让middle区域先显示出来，然后给左右区域设置float，再通过margin负值和relative布局的方式调整布局。</p>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;zh&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;  &lt;title&gt;圣杯布局&lt;/title&gt;  &lt;style&gt;    * &#123;      margin: 0;      padding: 0;    &#125;    p&#123;        text-align: center;    &#125;    .header,    .footer &#123;      height: 100px;      line-height: 100px;      background-color: green;      text-align: center;      font-size: 30px;      font-weight: bolder;    &#125;    .footer &#123;      background-color: goldenrod;    &#125;    .container &#123;      padding: 0 220px 0 200px;      overflow: hidden;    &#125;    .left,    .middle,    .right &#123;      position: relative;      float: left;      min-height: 130px;      word-break: break-all;    &#125;    .left &#123;      margin-left: -100%;      left: -200px;      width: 200px;      background-color: red;    &#125;    .right &#123;      margin-left: -220px;      right: -220px;      width: 220px;      background-color: green;    &#125;    .middle &#123;      width: 100%;      background-color: blue;    &#125;  &lt;/style&gt;&lt;/head&gt;&lt;body&gt;  &lt;div class=&quot;header&quot;&gt;header&lt;/div&gt;  &lt;div class=&quot;container&quot;&gt;    &lt;div class=&quot;middle&quot;&gt;      &lt;h4&gt;middle&lt;/h4&gt;      &lt;p&gt;       middle      &lt;/p&gt;    &lt;/div&gt;    &lt;div class=&quot;left&quot;&gt;      &lt;h4&gt;left&lt;/h4&gt;      &lt;p&gt;        left      &lt;/p&gt;    &lt;/div&gt;    &lt;div class=&quot;right&quot;&gt;      &lt;h4&gt;right&lt;/h4&gt;      &lt;p&gt;       right      &lt;/p&gt;    &lt;/div&gt;  &lt;/div&gt;  &lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+<ol>
+<li>首先把left、middle、right都放出来</li>
+<li>给它们三个设置上float: left, 脱离文档流；</li>
+<li>一定记得给container设置上overflow: hidden;可以形成BFC撑开文档</li>
+<li>left、right设置上各自的宽度</li>
+<li>middle设置width: 100%;</li>
+<li>给left、middle、right设置position: relative;</li>
+<li>left设置 left: -leftWidth, right设置 right: -rightWidth;</li>
+<li>container设置padding: 0, rightWidth, 0, leftWidth;</li>
+</ol>
+<h4 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h4><p>也是使用了浮动和margin使用负值的方式实现的三栏布局，给middle区域（中间的自适应区域）先设置浮动，这样可以让middle区域先显示出来，然后给左右区域设置float，再通过margin负值和relative布局的方式调整布局。</p>
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;zh&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;  &lt;title&gt;双飞翼布局&lt;/title&gt;  &lt;style&gt;  p&#123;      text-align:center ;  &#125;    * &#123;      margin: 0;      padding: 0;    &#125;    .header,    .footer &#123;      height: 100px;      line-height: 100px;      background-color: green;      text-align: center;      font-size: 30px;      font-weight: bolder;    &#125;    .footer &#123;      background-color: goldenrod;    &#125;    .container &#123;      overflow: hidden;    &#125;    .left,    .middle,    .right &#123;      float: left;      min-height: 130px;      word-break: break-all;    &#125;    .left &#123;      margin-left: -100%;      width: 200px;      background-color: red;    &#125;    .right &#123;      margin-left: -220px;      width: 220px;      background-color: green;    &#125;    .middle &#123;      width: 100%;      height: 100%;      background-color: blue;    &#125;    .inner &#123;      margin: 0 220px 0 200px;      min-height: 130px;      background: blue;      word-break: break-all;         &#125;  &lt;/style&gt;&lt;/head&gt;&lt;body&gt;  &lt;div class=&quot;header&quot;&gt;header&lt;/div&gt;  &lt;div class=&quot;container&quot;&gt;    &lt;div class=&quot;middle&quot;&gt;      &lt;div class=&quot;inner&quot;&gt;        &lt;h4&gt;middle&lt;/h4&gt;        &lt;p&gt;         midfle        &lt;/p&gt;      &lt;/div&gt;    &lt;/div&gt;    &lt;div class=&quot;left&quot;&gt;      &lt;h4&gt;left&lt;/h4&gt;      &lt;p&gt;       left      &lt;/p&gt;    &lt;/div&gt;    &lt;div class=&quot;right&quot;&gt;      &lt;h4&gt;right&lt;/h4&gt;      &lt;p&gt;      right      &lt;/p&gt;    &lt;/div&gt;  &lt;/div&gt;  &lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+<ol>
+<li>首先把left、middle、right都放出来,middle中增加inner</li>
+<li>给它们三个设置上float: left, 脱离文档流；</li>
+<li>一定记得给container设置上overflow: hidden; 可以形成BFC撑开文档</li>
+<li>left、right设置上各自的宽度</li>
+<li>middle设置width: 100%;</li>
+<li>left设置 margin-left: -100%, right设置 right: -rightWidth;</li>
+<li>container设置padding: 0, 0;</li>
+</ol>
+<h4 id="双飞翼布局和圣杯布局的异同"><a href="#双飞翼布局和圣杯布局的异同" class="headerlink" title="双飞翼布局和圣杯布局的异同"></a>双飞翼布局和圣杯布局的异同</h4><p><img src="http://image.myblog-tao.cn//16cfefeb90d9ec0b.webp"><br>圣杯布局和双飞翼布局很像，都是三列布局，左右两栏固定宽度，中间的部分自适应,采用了浮动和margin，并都把middle作为第一个浮动元素。</p>
+<p><strong>因为双飞翼布局中，父元素的padding是0，middle的宽度是100%，所以，如果给middle设置背景颜色，会包括left和right的区域，在圣杯布局中，父元素设置了padding,虽然middle元素也是占据了100%，如果给middle设置背景颜色，那么背景颜色不会包括left 和 right 的区域</strong></p>
+<h4 id="响应式设计和布局"><a href="#响应式设计和布局" class="headerlink" title="响应式设计和布局"></a>响应式设计和布局</h4><p>限于文章的篇幅，这里只做简单的介绍，更多详细可以参看下篇文章</p>
+<ul>
+<li>在不同的设备上正常使用</li>
+<li>一般主要处理屏幕大小的问题</li>
+<li>主要方法</li>
+</ul>
+<ol>
+<li>隐藏 + 折行 + 自适应空间</li>
+<li>rem&#x2F;viewport&#x2F;media query</li>
+</ol>
+<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><p>当设置成 float 时，元素会变成BFC，BFC会负责接管自己的宽高，解决float的问题，可以给父元素设置成BFC，让父元素去接管自己的宽高。BFC的详细内容篇幅也是比较多，所以，会在接下来单独开一篇文章讲，本文只做总结类描述。</p>
+<h4 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h4><p>到这里，本文的内容就告一段落了，本文总结了css中常见的布局，和常见的布局效果，后面的内容请看接下来的文章。</p>
+<p>参考文章如下</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903817104850952#heading-3">深入理解圣杯布局和双飞翼布局</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -273,7 +361,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -284,57 +372,6 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://cxtao666.github.io/2020/04/23/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -343,18 +380,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/23/nust.js%E5%88%9D%E6%8E%A2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          nust.js初探
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/24/ejs%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ejs的简单使用</div>
+    <a href="/2020/07/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E6%BC%AB%E8%B0%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编译原理漫谈</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -397,7 +425,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2026 cxtao
+    		&copy; 2026 Xiantao Cai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -438,8 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
-      
-      
     
       
       
@@ -451,15 +477,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -484,10 +508,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -505,6 +525,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,43 +583,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Engineer building tools, systems, and freedom.&lt;br&gt;&lt;br&gt;Writing about software engineering, AI tools, and independent work.</div>
   	  	
     	</section>
     
