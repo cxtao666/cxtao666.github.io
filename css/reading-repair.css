@@ -53,10 +53,18 @@
 .article-entry pre,
 .article-entry figure.highlight {
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
 }
 
-.article-entry code {
+.article-entry pre code {
+  display: block;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.article-entry :not(pre) > code {
   overflow-wrap: anywhere;
 }
 
