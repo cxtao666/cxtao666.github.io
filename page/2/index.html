@@ -75,6 +75,8 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
             
     			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
@@ -183,8 +185,6 @@
       
         <h2 id="git的简单介绍"><a href="#git的简单介绍" class="headerlink" title="git的简单介绍"></a>git的简单介绍</h2><p>git是分布式版本控制工具</p>
         
-          <a class="article-more-a" href="/2020/04/24/git%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
       
 
       
@@ -258,8 +258,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h4><p><strong>把我个人博客的前端界面部分使用nuxt框架进行服务端渲染</strong></p>
-        
-          <a class="article-more-a" href="/2020/04/24/nust.js%E5%88%9D%E6%8E%A2/#more">more >></a>
         
       
 
@@ -335,8 +333,6 @@
       
         <h3 id="操作系统基本概念"><a href="#操作系统基本概念" class="headerlink" title="操作系统基本概念"></a>操作系统基本概念</h3><p>首先来来说下操作系统，嗯，<strong>操作系统是计算机硬件的管理软件，是对计算机硬件的抽象</strong> ，操作系统将应用程序分为用户态和内核态，例如驱动程序就位于内核态，而我们写的一般程序都是用户态，包括web服务器这些，应用程序无法直接操控硬件，只能通过系统调用，通过操作系统驱动io硬件，通过操作系统管理进程。</p>
         
-          <a class="article-more-a" href="/2020/04/24/%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B/#more">more >></a>
-        
       
 
       
@@ -410,8 +406,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>ejs是node的服务端渲染引擎,和art-template,jade差不多,实现功能就大致相当于jsp,虽然现在提倡前后端分离,但服务端渲染还是有它的优点的,最主要的一点当然就是便利于seo,搜索引擎的抓取.所以这篇博客将从几个方面来简单介绍下ejs的使用</strong></p>
-        
-          <a class="article-more-a" href="/2020/03/24/ejs%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/#more">more >></a>
         
       
 
@@ -487,8 +481,6 @@
       
         <h3 id="git-commit日志基本规范"><a href="#git-commit日志基本规范" class="headerlink" title="git commit日志基本规范"></a>git commit日志基本规范</h3><p>利用git的commit指令提交代码我想大家都知道,但是git的commit的日志内容其实也是有所讲究的,为了更好的维护代码,应该提升git的commit日志信息的可读性,这样可以方便以后更好的查看提交的代码记录,也方便更好的维护代码,所以有良好的代码日志规范也是很重要的</p>
         
-          <a class="article-more-a" href="/2020/03/24/git%E7%9A%84commit%E6%97%A5%E5%BF%97%E5%9F%BA%E6%9C%AC%E8%A7%84%E8%8C%83/#more">more >></a>
-        
       
 
       
@@ -562,8 +554,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="JSDoc作用"><a href="#JSDoc作用" class="headerlink" title="JSDoc作用"></a><code>JSDoc</code>作用</h3><p>我们都知道js是门弱类型的语言,所以,为了增强代码的可读性,提高js的代码规范,可以选择使用JSDoc进行代码的注释,有了更多类型描述,例如参数类型,函数的返回值类型等等这些的类型描述,在进行开发时会带来很大的便捷,在这基础上稍做扩展,就可以用于代码提示和语法分析,同时JSDoc也可以导出API文档</p>
-        
-          <a class="article-more-a" href="/2020/03/24/JSDoc%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
         
       
 
@@ -672,6 +662,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
       
       
@@ -683,13 +675,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -718,11 +712,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,6 +782,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://github.com/cxtao666" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>GitHub</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
