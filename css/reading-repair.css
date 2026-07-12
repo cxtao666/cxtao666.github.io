@@ -1,6 +1,10 @@
 /* Local repairs layered on top of Yilia without changing the theme structure. */
-.article-inner {
+.article:not(.article-index) .article-inner {
   max-width: 860px;
+}
+
+.article-index .article-inner {
+  max-width: none;
 }
 
 .article-entry {
